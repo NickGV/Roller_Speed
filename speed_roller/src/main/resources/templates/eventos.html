@@ -1,112 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
-    <title>Eventos</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body>
-    <header class="text-center p-4">
-      <nav class="navbar navbar-expand-lg bg-light border-radius-4">
-        <div class="container">
-          <a class="navbar-brand" href="./home.html">Roller Speed</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="./mision.html">Misión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./vision.html">Visión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./valores.html">Valores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./servicios.html">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./eventos.html">Eventos</a>
-              </li>
-            </ul>
-            <a href="./join.html" class="btn btn-join">Unete</a>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Próximos Eventos</h2>
-        <ul>
-          <li>
-            <h3>Evento 1</h3>
-            <p>Fecha: 10 de Noviembre, 2023</p>
-            <p>Ubicación: Ciudad Deportiva</p>
-          </li>
-          <li>
-            <h3>Evento 2</h3>
-            <p>Fecha: 15 de Diciembre, 2023</p>
-            <p>Ubicación: Parque Central</p>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer class="bg-light pt-4">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+    crossorigin="anonymous"
+  />
+  <title>Eventos - Roller Speed</title>
+  <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+  <style>
+    .card-img-top-custom {
+      width: 100%;
+      height: 220px; /* Ajusta esta altura según tus necesidades */
+      object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    }
+  </style>
+</head>
+<body>
+  <header class="text-center p-4">
+    <nav class="navbar navbar-expand-lg bg-light border-radius-4">
       <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <nav class="nav justify-content-center">
-              <a class="nav-link px-3 text-dark" href="#">Mision</a>
-              <a class="nav-link px-3 text-dark" href="#">Vision</a>
-              <a class="nav-link px-3 text-dark" href="#">Valores</a>
-              <a class="nav-link px-3 text-dark" href="#">Servicios</a>
-              <a class="nav-link px-3 text-dark" href="#">Eventos</a>
-            </nav>
+        <a class="navbar-brand" href="./home.html" th:href="@{/}">Roller Speed</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCorporativo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Corporativo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownCorporativo">
+                    <li><a class="dropdown-item" href="./mision.html" th:href="@{/corporativo/mision}">Misión</a></li>
+                    <li><a class="dropdown-item" href="./vision.html" th:href="@{/corporativo/vision}">Visión</a></li>
+                    <li><a class="dropdown-item" href="./valores.html" th:href="@{/corporativo/valores}">Valores</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./servicios.html" th:href="@{/servicios}">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./eventos.html" th:href="@{/eventos}">Eventos de la escuela</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegistro" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Registro
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownRegistro">
+                    <li><a class="dropdown-item" href="#" th:href="@{/registro/estudiante}">Inscripción de Estudiantes</a></li>
+                    <li><a class="dropdown-item" href="#" th:href="@{/registro/instructor}">Inscripción de Instructor</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClases" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clases
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownClases">
+                    <li><a class="dropdown-item" href="#" th:href="@{/clases/estudiantes/listar}">Listar Estudiantes</a></li>
+                </ul>
+            </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHorarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Calendario u Horario de Clases
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownHorarios">
+                    <li><a class="dropdown-item" href="#" th:href="@{/horarios/estudiantes}">Estudiantes</a></li>
+                    <li><a class="dropdown-item" href="#" th:href="@{/horarios/instructor}">Instructor</a></li>
+                </ul>
+            </li>
+          </ul>
+          <a href="./join.html" th:href="@{/registro/estudiante}" class="btn btn-join">Únete</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mt-5 mb-5">
+    <section>
+      <h1 class="text-center mb-4">Próximos Eventos</h1>
+      <p class="lead text-center mb-5">
+        ¡No te pierdas nuestros emocionantes eventos! Competiciones, exhibiciones, talleres y mucho más. Mantente al tanto de nuestras actividades y únete a la comunidad Roller Speed.
+      </p>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/festival_verano.webp" class="card-img-top-custom" alt="Festival de Patinaje de Verano">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Festival de Patinaje de Verano 2025</h5>
+              <p class="card-text">
+                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 20 de Julio, 2025</small>
+                <small class="text-muted d-block"><strong>Hora:</strong> 10:00 AM - 4:00 PM</small>
+                <small class="text-muted d-block"><strong>Ubicación:</strong> Patinódromo Municipal de Santa Marta</small>
+              </p>
+              <p class="card-text mt-2">
+                Celebra el verano con nosotros en un día lleno de patinaje, música y diversión para toda la familia. Habrá demostraciones, competencias amistosas y talleres gratuitos.
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Ver Detalles e Inscribirse</a>
+            </div>
           </div>
         </div>
 
-        <hr class="my-4" />
-
-        <div class="row align-items-center pb-3">
-          <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-            <small class="text-muted"
-              >&copy; 2025 Roller Speed. Todos los derechos reservados.</small
-            >
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/competencia_regional.webp" class="card-img-top-custom" alt="Competencia Regional de Velocidad">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Competencia Regional de Velocidad "Costa Dorada"</h5>
+              <p class="card-text">
+                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 14 de Septiembre, 2025</small>
+                <small class="text-muted d-block"><strong>Hora:</strong> 9:00 AM (Inicio de pruebas)</small>
+                <small class="text-muted d-block"><strong>Ubicación:</strong> Pista de alta velocidad "El Rodadero"</small>
+              </p>
+              <p class="card-text mt-2">
+                Demuestra tu velocidad y compite con los mejores patinadores de la región. Categorías desde infantil hasta senior. ¡Inscripciones abiertas!
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Más Información y Registro</a>
+            </div>
           </div>
-          <div class="col-md-6 text-center text-md-end">
-            <nav class="nav justify-content-center justify-content-md-end">
-              <a class="nav-link px-3 text-dark" href="#"
-                >Términos y Condiciones</a
-              >
-              <a class="nav-link px-3 text-dark" href="#"
-                >Política de Privacidad</a
-              >
-            </nav>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/taller.webp" class="card-img-top-custom" alt="Taller de Técnica de Patinaje Artístico">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Taller de Técnica de Patinaje Artístico con Campeona Nacional</h5>
+              <p class="card-text">
+                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 26 de Octubre, 2025</small>
+                <small class="text-muted d-block"><strong>Hora:</strong> 2:00 PM - 5:00 PM</small>
+                <small class="text-muted d-block"><strong>Ubicación:</strong> Coliseo Menor de Santa Marta</small>
+              </p>
+              <p class="card-text mt-2">
+                Oportunidad única para aprender y perfeccionar tu técnica de patinaje artístico con una reconocida campeona nacional. Cupos limitados.
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Reservar Cupo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/exhibicion.webp" class="card-img-top-custom" alt="Exhibición Navideña Roller Speed">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Exhibición Navideña Roller Speed 2025</h5>
+              <p class="card-text">
+                <small class="text-muted d-block"><strong>Fecha:</strong> Domingo, 15 de Diciembre, 2025</small>
+                <small class="text-muted d-block"><strong>Hora:</strong> 6:00 PM</small>
+                <small class="text-muted d-block"><strong>Ubicación:</strong> Plaza de Bolívar, Santa Marta</small>
+              </p>
+              <p class="card-text mt-2">
+                Nuestros alumnos presentarán coreografías especiales para celebrar la temporada navideña. Un evento lleno de luz, color y talento sobre ruedas. ¡Entrada libre!
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Confirmar Asistencia</a>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </section>
+  </main>
+
+  <footer class="bg-light pt-4">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <nav class="nav justify-content-center justify-content-md-start">
+            <a class="nav-link px-2 text-dark" href="./mision.html" th:href="@{/corporativo/mision}">Misión</a>
+            <a class="nav-link px-2 text-dark" href="./vision.html" th:href="@{/corporativo/vision}">Visión</a>
+            <a class="nav-link px-2 text-dark" href="./valores.html" th:href="@{/corporativo/valores}">Valores</a>
+            <a class="nav-link px-2 text-dark" href="./servicios.html" th:href="@{/servicios}">Servicios</a>
+            <a class="nav-link px-2 text-dark" href="./eventos.html" th:href="@{/eventos}">Eventos</a>
+          </nav>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="row align-items-center pb-3">
+        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <small class="text-muted"
+            >&copy; <span th:text="${#dates.year(#dates.createNow())}">2025</span> Roller Speed. Todos los derechos reservados.</small
+          >
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <nav class="nav justify-content-center justify-content-md-end">
+            <a class="nav-link px-2 text-dark" href="#">Términos y Condiciones</a>
+            <a class="nav-link px-2 text-dark" href="#">Política de Privacidad</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"
+  ></script>
+</body>
 </html>

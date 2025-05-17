@@ -1,19 +1,53 @@
+/* styles.css */
 .navbar {
-  background-color: #f8f9fa;
-  border-radius: 5px;
+  background-color: #f8f9fa; /* Un gris muy claro, estándar de Bootstrap */
+  border-radius: 5px; /* Bordes redondeados para el navbar */
 }
+
 .navbar-brand {
-  font-weight: bold;
+  font-weight: bold; /* Texto en negrita para la marca */
 }
+
 .nav-link {
-  color: #000;
-  transition: color 0.3s ease;
+  color: #000; /* Color de texto negro para los enlaces */
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
 }
-.nav-link:hover {
-  color: #ffaa00 !important;
+
+.nav-link:hover,
+.nav-link.active { /* Estilo para el enlace activo o al pasar el mouse */
+  color: #ffaa00 !important; /* Color naranja con !important para asegurar que se aplique */
 }
+
+/* Estilo para el botón "Únete" */
 .btn-join {
   background-color: orange;
   color: white;
+  border: none; /* Quitar borde por defecto si lo tuviera */
 }
 
+.btn-join:hover {
+  background-color: #e69500; /* Un naranja un poco más oscuro para el hover */
+  color: white;
+}
+
+/* Ajustes para que los dropdowns hereden el estilo de hover */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #ffaa00 !important;
+  background-color: #f8f9fa; /* O el color de fondo que prefieras para el item hover */
+}
+
+/* Opcional: Mejorar un poco el espaciado del contenido principal */
+main {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Estilos para las cards (opcional, Bootstrap ya les da buen aspecto) */
+.card {
+  border: 1px solid #e9ecef; /* Un borde sutil para las cards */
+}
+
+.card-title {
+  color: #343a40; /* Un color de título un poco más oscuro */
+}

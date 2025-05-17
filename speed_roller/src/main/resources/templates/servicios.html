@@ -1,109 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
-    <title>Servicios</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body>
-    <header class="text-center p-4">
-      <nav class="navbar navbar-expand-lg bg-light border-radius-4">
-        <div class="container">
-          <a class="navbar-brand" href="./home.html">Roller Speed</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="./mision.html">Misión</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./vision.html">Visión</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./valores.html">Valores</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./servicios.html">Servicios</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./eventos.html">Eventos</a>
-                </li>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+    crossorigin="anonymous"
+  />
+  <title>Servicios - Roller Speed</title>
+  <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+  <style>
+    .card-img-top-custom {
+      width: 100%;
+      height: 200px; /* Ajusta esta altura según tus necesidades */
+      object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    }
+  </style>
+</head>
+<body>
+  <header class="text-center p-4">
+    <nav class="navbar navbar-expand-lg bg-light border-radius-4">
+      <div class="container">
+        <a class="navbar-brand" href="./home.html" th:href="@{/}">Roller Speed</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCorporativo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Corporativo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownCorporativo">
+                    <li><a class="dropdown-item" href="./mision.html" th:href="@{/corporativo/mision}">Misión</a></li>
+                    <li><a class="dropdown-item" href="./vision.html" th:href="@{/corporativo/vision}">Visión</a></li>
+                    <li><a class="dropdown-item" href="./valores.html" th:href="@{/corporativo/valores}">Valores</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./servicios.html" th:href="@{/servicios}">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./eventos.html" th:href="@{/eventos}">Eventos de la escuela</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegistro" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Registro
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownRegistro">
+                    <li><a class="dropdown-item" href="#" th:href="@{/registro/estudiante}">Inscripción de Estudiantes</a></li>
+                    <li><a class="dropdown-item" href="#" th:href="@{/registro/instructor}">Inscripción de Instructor</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClases" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clases
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownClases">
+                    <li><a class="dropdown-item" href="#" th:href="@{/clases/estudiantes/listar}">Listar Estudiantes</a></li>
+                </ul>
+            </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHorarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Calendario u Horario de Clases
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownHorarios">
+                    <li><a class="dropdown-item" href="#" th:href="@{/horarios/estudiantes}">Estudiantes</a></li>
+                    <li><a class="dropdown-item" href="#" th:href="@{/horarios/instructor}">Instructor</a></li>
+                </ul>
+            </li>
+          </ul>
+          <a href="./join.html" th:href="@{/registro/estudiante}" class="btn btn-join">Únete</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mt-5 mb-5">
+    <section>
+      <h1 class="text-center mb-4">Nuestros Servicios</h1>
+      <p class="lead text-center mb-5">
+        En Roller Speed, ofrecemos una variedad de programas y clases diseñados para patinadores de todos los niveles. Nuestro objetivo es fomentar el amor por el patinaje, mejorar tus habilidades y prepararte para alcanzar tus metas, ya sea recreativas o competitivas.
+      </p>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patinaje_principiante.webp" class="card-img-top-custom" alt="Clases para Principiantes">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Clases para Principiantes</h5>
+              <p class="card-text">
+                Aprende los fundamentos del patinaje en un ambiente seguro y divertido. Nuestros instructores certificados te guiarán paso a paso.
+              </p>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Nivel:</strong> Básico (sin experiencia)</li>
+                <li><strong>Duración:</strong> 1 hora por clase</li>
+                <li><strong>Frecuencia:</strong> 2 clases/semana</li>
+                <li><strong>Precio Mensual:</strong> $120.000 COP</li>
+                <li><strong>Clase Suelta:</strong> $20.000 COP</li>
+                <li><small><em>Incluye préstamo de equipo básico en primeras 2 clases.</em></small></li>
               </ul>
-              <a href="./join.html" class="btn btn-join">Unete</a>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Nuestros Servicios</h2>
-        <p>
-          Ofrecemos una variedad de servicios para satisfacer tus necesidades.
-        </p>
-        <ul>
-          <li>Alquiler de patines</li>
-          <li>Clases de patinaje</li>
-          <li>Organización de eventos</li>
-          <li>Mantenimiento de equipos</li>
-        </ul>
-      </section>
-    </main>
-    <footer class="bg-light pt-4">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              <nav class="nav justify-content-center">
-                <a class="nav-link px-3 text-dark" href="#">Mision</a>
-                <a class="nav-link px-3 text-dark" href="#">Vision</a>
-                <a class="nav-link px-3 text-dark" href="#">Valores</a>
-                <a class="nav-link px-3 text-dark" href="#">Servicios</a>
-                <a class="nav-link px-3 text-dark" href="#">Eventos</a>
-              </nav>
-            </div>
-          </div>
-  
-          <hr class="my-4" />
-  
-          <div class="row align-items-center pb-3">
-            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-              <small class="text-muted"
-                >&copy; 2025 Roller Speed. Todos los derechos reservados.</small
-              >
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-              <nav class="nav justify-content-center justify-content-md-end">
-                <a class="nav-link px-3 text-dark" href="#"
-                  >Términos y Condiciones</a
-                >
-                <a class="nav-link px-3 text-dark" href="#"
-                  >Política de Privacidad</a
-                >
-              </nav>
+              <a href="#" class="btn btn-outline-primary mt-auto">Más Información e Inscripción</a>
             </div>
           </div>
         </div>
-      </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patinaje_intermedio.webp" class="card-img-top-custom" alt="Entrenamiento Intermedio">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Entrenamiento Intermedio</h5>
+              <p class="card-text">
+                Perfecciona tu técnica, aprende nuevas habilidades y aumenta tu confianza sobre ruedas.
+              </p>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Nivel:</strong> Intermedio (dominio de bases)</li>
+                <li><strong>Duración:</strong> 1.5 horas por clase</li>
+                <li><strong>Frecuencia:</strong> 2 clases/semana</li>
+                <li><strong>Precio Mensual:</strong> $150.000 COP</li>
+                <li><small><em>Enfoque en técnica avanzada, giros y saltos básicos.</em></small></li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary mt-auto">Más Información e Inscripción</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/preparacion_competencias.webp" class="card-img-top-custom" alt="Preparación para Competencias">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Preparación para Competencias</h5>
+              <p class="card-text">
+                Lleva tu patinaje al siguiente nivel con entrenamiento especializado y preparación física y mental.
+              </p>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Nivel:</strong> Avanzado / Competitivo</li>
+                <li><strong>Duración:</strong> 2 horas por clase</li>
+                <li><strong>Frecuencia:</strong> 3 clases/semana + plan físico</li>
+                <li><strong>Precio Mensual:</strong> $200.000 COP</li>
+                <li><small><em>Asesoría personalizada y estrategia de competencia.</em></small></li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary mt-auto">Consultar Programa</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patinaje_artistico.webp" class="card-img-top-custom" alt="Clases de Patinaje Artístico">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Clases de Patinaje Artístico</h5>
+              <p class="card-text">
+                Descubre la elegancia y la creatividad del patinaje artístico. Aprende figuras, saltos y coreografías.
+              </p>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Nivel:</strong> Todos (grupos separados)</li>
+                <li><strong>Duración:</strong> 1.5 horas por clase</li>
+                <li><strong>Frecuencia:</strong> 2 clases/semana</li>
+                <li><strong>Precio Mensual:</strong> $180.000 COP</li>
+                <li><small><em>Instructores especializados en la disciplina.</em></small></li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary mt-auto">Ver Horarios y Niveles</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patinaje_recreativo.webp" class="card-img-top-custom" alt="Patinaje Recreativo y Fitness">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Patinaje Recreativo y Fitness</h5>
+              <p class="card-text">
+                Disfruta del patinaje como una forma divertida de ejercicio. Sesiones para mejorar tu condición física.
+              </p>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Nivel:</strong> Todos</li>
+                <li><strong>Duración:</strong> Sesiones de 2 horas</li>
+                <li><strong>Acceso Mensual:</strong> $100.000 COP (ilimitado a sesiones libres supervisadas)</li>
+                <li><strong>Precio por Sesión:</strong> $15.000 COP</li>
+                <li><small><em>Ideal para ejercicio y diversión.</em></small></li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary mt-auto">Consultar Horarios de Pista</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patines_renta.webp" class="card-img-top-custom" alt="Alquiler de Equipos">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Alquiler de Equipos</h5>
+              <p class="card-text">
+                ¿No tienes patines? Ofrecemos alquiler de patines y equipo de protección de alta calidad.
+              </p>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Patines (línea/artísticos):</strong> $10.000 COP/hora</li>
+                <li><strong>Kit Protección (casco, rodilleras, coderas):</strong> $5.000 COP/hora</li>
+                <li><strong>Disponibilidad:</strong> Durante horarios de apertura.</li>
+                <li><small><em>Se requiere documento de identidad.</em></small></li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary mt-auto">Consultar Disponibilidad</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-light pt-4">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <nav class="nav justify-content-center justify-content-md-start">
+            <a class="nav-link px-2 text-dark" href="./mision.html" th:href="@{/corporativo/mision}">Misión</a>
+            <a class="nav-link px-2 text-dark" href="./vision.html" th:href="@{/corporativo/vision}">Visión</a>
+            <a class="nav-link px-2 text-dark" href="./valores.html" th:href="@{/corporativo/valores}">Valores</a>
+            <a class="nav-link px-2 text-dark" href="./servicios.html" th:href="@{/servicios}">Servicios</a>
+            <a class="nav-link px-2 text-dark" href="./eventos.html" th:href="@{/eventos}">Eventos</a>
+          </nav>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="row align-items-center pb-3">
+        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <small class="text-muted"
+            >&copy; <span th:text="${#dates.year(#dates.createNow())}">2025</span> Roller Speed. Todos los derechos reservados.</small
+          >
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <nav class="nav justify-content-center justify-content-md-end">
+            <a class="nav-link px-2 text-dark" href="#">Términos y Condiciones</a>
+            <a class="nav-link px-2 text-dark" href="#">Política de Privacidad</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"
+  ></script>
+</body>
 </html>
