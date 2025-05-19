@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpeedRollerApplication<speed_roller>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.speedroller.speed_roller.SpeedRollerApplication",
+            "projectName": "speed_roller",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
