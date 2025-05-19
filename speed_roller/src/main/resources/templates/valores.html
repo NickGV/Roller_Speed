@@ -1,122 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
-    <title>Valores</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body>
-    <header class="text-center p-4">
-      <nav class="navbar navbar-expand-lg bg-light border-radius-4">
-        <div class="container">
-          <a class="navbar-brand" href="./home.html">Roller Speed</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+    crossorigin="anonymous"
+  />
+  <title>Valores - Roller Speed</title>
+  <link rel="stylesheet" href="../css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+  <header class="text-center p-4">
+    <nav class="navbar navbar-expand-lg bg-light border-radius-4">
+      <div class="container">
+        <a class="navbar-brand" href="./home.html" th:href="@{/}">Roller Speed</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCorporativo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Corporativo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownCorporativo">
+                    <li><a class="dropdown-item" href="./mision.html" th:href="@{/corporativo/mision}">Misión</a></li>
+                    <li><a class="dropdown-item" href="./vision.html" th:href="@{/corporativo/vision}">Visión</a></li>
+                    <li><a class="dropdown-item active" aria-current="page" href="./valores.html" th:href="@{/corporativo/valores}">Valores</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./servicios.html" th:href="@{/servicios}">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./eventos.html" th:href="@{/eventos}">Eventos de la escuela</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegistro" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Registro
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownRegistro">
+                    <li><a class="dropdown-item" href="#" th:href="@{/registro/estudiante}">Inscripción de Estudiantes</a></li>
+                    <li><a class="dropdown-item" href="#" th:href="@{/registro/instructor}">Inscripción de Instructor</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClases" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clases
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownClases">
+                    <li><a class="dropdown-item" href="#" th:href="@{/clases/estudiantes/listar}">Listar Estudiantes</a></li>
+                </ul>
+            </li>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHorarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Calendario u Horario de Clases
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownHorarios">
+                    <li><a class="dropdown-item" href="#" th:href="@{/horarios/estudiantes}">Estudiantes</a></li>
+                    <li><a class="dropdown-item" href="#" th:href="@{/horarios/instructor}">Instructor</a></li>
+                </ul>
+            </li>
+          </ul>
+          <a href="./join.html" th:href="@{/registro/estudiante}" class="btn btn-join">Únete</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mt-5 mb-5">
+    <section>
+      <div class="value-header text-center">
+        <h1 class="display-5 fw-bold">Nuestros Valores</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            Los valores que nos definen como escuela y que compartimos con nuestros estudiantes, familias e instructores.
+          </p>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="card value-card shadow-sm">
+            <div class="card-body text-center">
+              <div class="value-icon">🏆</div>
+              <h3 class="card-title">Excelencia</h3>
+              <p class="card-text">
+                Buscamos constantemente superar nuestras propias marcas, tanto en lo deportivo como en lo personal. La excelencia es un hábito que cultivamos día a día.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card value-card shadow-sm">
+            <div class="card-body text-center">
+              <div class="value-icon">🤝</div>
+              <h3 class="card-title">Compañerismo</h3>
+              <p class="card-text">
+                Creemos en el poder del equipo y en apoyarnos mutuamente. Crecemos juntos y celebramos los logros de cada miembro de nuestra comunidad.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card value-card shadow-sm">
+            <div class="card-body text-center">
+              <div class="value-icon">⏱️</div>
+              <h3 class="card-title">Disciplina</h3>
+              <p class="card-text">
+                La constancia y el trabajo metódico son la base de nuestro éxito. Valoramos el esfuerzo diario y la dedicación para alcanzar las metas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card value-card shadow-sm">
+            <div class="card-body text-center">
+              <div class="value-icon">🔄</div>
+              <h3 class="card-title">Resiliencia</h3>
+              <p class="card-text">
+                Las caídas son parte del aprendizaje. Enseñamos a nuestros patinadores a levantarse más fuertes ante cada adversidad y a perseverar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card value-card shadow-sm">
+            <div class="card-body text-center">
+              <div class="value-icon">🌱</div>
+              <h3 class="card-title">Crecimiento</h3>
+              <p class="card-text">
+                Fomentamos la mentalidad de crecimiento continuo, tanto técnico como personal, valorando el proceso y no solo los resultados.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card value-card shadow-sm">
+            <div class="card-body text-center">
+              <div class="value-icon">🔍</div>
+              <h3 class="card-title">Integridad</h3>
+              <p class="card-text">
+                Actuamos con honestidad y transparencia en todo momento. Promovemos el juego limpio y el respeto a las reglas dentro y fuera de la pista.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-quote text-center">
+        <h2 class="mb-4">"Los valores que enseñamos trascienden las pistas y preparan a nuestros patinadores para la vida."</h2>
+        <p class="lead mb-0">— Equipo Roller Speed</p>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h3 class="mb-4">Nuestro Compromiso</h3>
+          <p>
+            En Roller Speed no solo formamos patinadores, formamos personas con valores sólidos que les servirán a lo largo de toda su vida. Creemos que el deporte es una excelente escuela para adquirir valores y habilidades sociales que se traducen en éxito más allá de las pistas.
+          </p>
+          <p>
+            Cada entrenamiento, cada competencia y cada actividad están diseñados no solo para mejorar técnicamente, sino para fomentar estos valores que consideramos fundamentales en el desarrollo integral de nuestros estudiantes.
+          </p>
+        </div>
+        <div class="col-lg-6">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-light pt-4">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <nav class="nav justify-content-center justify-content-md-start">
+            <a class="nav-link px-2 text-dark" href="./mision.html" th:href="@{/corporativo/mision}">Misión</a>
+            <a class="nav-link px-2 text-dark" href="./vision.html" th:href="@{/corporativo/vision}">Visión</a>
+            <a class="nav-link px-2 text-dark" href="./valores.html" th:href="@{/corporativo/valores}">Valores</a>
+            <a class="nav-link px-2 text-dark" href="./servicios.html" th:href="@{/servicios}">Servicios</a>
+            <a class="nav-link px-2 text-dark" href="./eventos.html" th:href="@{/eventos}">Eventos</a>
+          </nav>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="row align-items-center pb-3">
+        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <small class="text-muted"
+            >&copy; <span th:text="${#dates.year(#dates.createNow())}">2025</span> Roller Speed. Todos los derechos reservados.</small
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="./mision.html">Mision</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./vision.html">Vision</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./valores.html">Valores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./servicios.html">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./eventos.html">Eventos</a>
-              </li>
-            </ul>
-            <a href="./join.html" class="btn btn-join">Unete</a>
-          </div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Nuestros Valores</h2>
-        <ul>
-          <li>
-            <strong>Innovación:</strong> Buscamos siempre mejorar y ofrecer lo
-            mejor a nuestros usuarios.
-          </li>
-          <li>
-            <strong>Compromiso:</strong> Estamos dedicados a brindar un servicio
-            de calidad.
-          </li>
-          <li>
-            <strong>Trabajo en equipo:</strong> Creemos en la colaboración para
-            alcanzar grandes metas.
-          </li>
-          <li>
-            <strong>Responsabilidad:</strong> Actuamos con ética y
-            profesionalismo en todo lo que hacemos.
-          </li>
-          <li>
-            <strong>Pasión:</strong> Amamos lo que hacemos y lo reflejamos en
-            cada detalle.
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer class="bg-light pt-4">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              <nav class="nav justify-content-center">
-                <a class="nav-link px-3 text-dark" href="#">Mision</a>
-                <a class="nav-link px-3 text-dark" href="#">Vision</a>
-                <a class="nav-link px-3 text-dark" href="#">Valores</a>
-                <a class="nav-link px-3 text-dark" href="#">Servicios</a>
-                <a class="nav-link px-3 text-dark" href="#">Eventos</a>
-              </nav>
-            </div>
-          </div>
-  
-          <hr class="my-4" />
-  
-          <div class="row align-items-center pb-3">
-            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-              <small class="text-muted"
-                >&copy; 2025 Roller Speed. Todos los derechos reservados.</small
-              >
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-              <nav class="nav justify-content-center justify-content-md-end">
-                <a class="nav-link px-3 text-dark" href="#"
-                  >Términos y Condiciones</a
-                >
-                <a class="nav-link px-3 text-dark" href="#"
-                  >Política de Privacidad</a
-                >
-              </nav>
-            </div>
-          </div>
+        <div class="col-md-6 text-center text-md-end">
+          <nav class="nav justify-content-center justify-content-md-end">
+            <a class="nav-link px-2 text-dark" href="#">Términos y Condiciones</a>
+            <a class="nav-link px-2 text-dark" href="#">Política de Privacidad</a>
+          </nav>
         </div>
-      </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"
+  ></script>
+</body>
 </html>
