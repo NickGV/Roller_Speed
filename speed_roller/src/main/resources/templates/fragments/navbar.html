@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header th:fragment="navbar" class="text-center p-4">
+        <nav class="navbar navbar-expand-lg bg-light border-radius-4">
+            <div class="container">
+                <a class="navbar-brand" href="/home" th:href="@{/}">Roller Speed</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCorporativo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Corporativo
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCorporativo">
+                                <li><a class="dropdown-item" href="/mision" th:href="@{/corporativo/mision}">Misión</a></li>
+                                <li><a class="dropdown-item" href="vision" th:href="@{/corporativo/vision}">Visión</a></li>
+                                <li><a class="dropdown-item" href="valores" th:href="@{/corporativo/valores}">Valores</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicios" th:href="@{/servicios}">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eventos" th:href="@{/eventos}">Eventos de la escuela</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegistro" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Registro
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownRegistro">
+                                <li><a class="dropdown-item" href="#" th:href="@{/registro/estudiante}">Inscripción de Estudiantes</a></li>
+                                <li><a class="dropdown-item" href="#" th:href="@{/registro/instructor}">Inscripción de Instructor</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClases" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Clases
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownClases">
+                                <li><a class="dropdown-item" href="#" th:href="@{/clases/estudiantes/listar}">Listar Estudiantes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHorarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Calendario u Horario de Clases
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownHorarios">
+                                <li><a class="dropdown-item" href="#" th:href="@{/horarios/estudiantes}">Estudiantes</a></li>
+                                <li><a class="dropdown-item" href="#" th:href="@{/horarios/instructor}">Instructor</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="./join.html" th:href="@{/registro/estudiante}" class="btn btn-join">Únete</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
