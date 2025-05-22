@@ -1,31 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Roller Speed - Escuela de Patinaje</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" th:href="@{/css/styles.css}" />
+
   </head>
   <body>
     <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-    <main class="container my-5">
-      <section>
-        <h2>About the Game</h2>
-        <p>
-          Speed Roller is an exciting game where you test your reflexes and
-          speed. Get ready to roll!
-        </p>
-      </section>
-    </main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="display-3 fw-bold mb-4">Descubre tu potencial sobre ruedas</h1>
+        <p class="lead mb-5">En Roller Speed formamos patinadores completos, desarrollando habilidades técnicas y valores para toda la vida</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" th:href="@{/registro/estudiante}" class="btn btn-primary btn-lg">Inscríbete ahora</a>
+          <a href="#" th:href="@{/servicios}" class="btn btn-outline-light btn-lg">Conoce nuestros servicios</a>
+        </div>
+      </div>
+    </section>
 
-      <div th:replace="~{fragments/footer :: footer}"></div>
+    <section class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="../images/patinaje_intermedio.webp" th:src="@{/images/patinaje_intermedio.webp}" alt="Entrenamiento de patinaje" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="mb-4">Bienvenidos a Roller Speed</h2>
+          <p class="lead">Somos una escuela especializada en patinaje de velocidad, dedicada a formar atletas técnicamente sólidos y con valores.</p>
+          <p>En Roller Speed creemos en el potencial transformador del deporte. Nuestra metodología única combina entrenamiento técnico de vanguardia con desarrollo personal, creando no solo patinadores excepcionales sino también personas íntegras.</p>
+          <div class="mt-4">
+            <a href="#" th:href="@{/corporativo/mision}" class="btn btn-outline-primary me-2">Nuestra Misión</a>
+            <a href="#" th:href="@{/corporativo/vision}" class="btn btn-outline-primary">Nuestra Visión</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container my-5 py-5 bg-light rounded">
+      <h2 class="text-center mb-5">Nuestros Valores</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+              <div class="feature-icon">🏆</div>
+              <h3 class="card-title">Excelencia</h3>
+              <p class="card-text">Buscamos constantemente superar nuestras propias marcas, tanto en lo deportivo como en lo personal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+              <div class="feature-icon">⏱️</div>
+              <h3 class="card-title">Disciplina</h3>
+              <p class="card-text">La constancia y el trabajo metódico son la base de nuestro éxito. Valoramos el esfuerzo diario.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+              <div class="feature-icon">🤝</div>
+              <h3 class="card-title">Compañerismo</h3>
+              <p class="card-text">Creemos en el poder del equipo y en apoyarnos mutuamente. Crecemos juntos y celebramos los logros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" th:href="@{/corporativo/valores}" class="btn btn-primary">Conoce todos nuestros valores</a>
+      </div>
+    </section>
+
+    <section class="container my-5">
+      <h2 class="text-center mb-5">Servicios Destacados</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patinaje_principiante.webp" th:src="@{/images/patinaje_principiante.webp}" class="card-img-top" alt="Clases para Principiantes">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Clases para Principiantes</h5>
+              <p class="card-text">Aprende los fundamentos del patinaje en un ambiente seguro y divertido.</p>
+              <a href="#" th:href="@{/corporativo/servicios}" class="btn btn-outline-primary mt-auto">Más información</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/patinaje_intermedio.webp" th:src="@{/images/patinaje_intermedio.webp}" class="card-img-top" alt="Entrenamiento Intermedio">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Entrenamiento Intermedio</h5>
+              <p class="card-text">Perfecciona tu técnica, aprende nuevas habilidades y aumenta tu confianza.</p>
+              <a href="#" th:href="@{/corporativo/servicios}" class="btn btn-outline-primary mt-auto">Más información</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/preparacion_competencias.webp" th:src="@{/images/preparacion_competencias.webp}" class="card-img-top" alt="Preparación para Competencias">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Preparación para Competencias</h5>
+              <p class="card-text">Lleva tu patinaje al siguiente nivel con entrenamiento especializado.</p>
+              <a href="#" th:href="@{/corporativo/servicios}" class="btn btn-outline-primary mt-auto">Más información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" th:href="@{/corporativo/servicios}" class="btn btn-primary">Ver todos los servicios</a>
+      </div>
+    </section>
+
+    <section class="container my-5 py-5 bg-light rounded">
+      <h2 class="text-center mb-5">Próximos Eventos</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/festival_verano.webp" th:src="@{/images/festival_verano.webp}" class="card-img-top" alt="Festival de Patinaje de Verano">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Festival de Patinaje de Verano 2025</h5>
+              <p class="card-text">
+                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 20 de Julio, 2025</small>
+                <small class="text-muted d-block"><strong>Ubicación:</strong> Patinódromo Municipal</small>
+              </p>
+              <p class="card-text mt-2">
+                Celebra el verano con nosotros en un día lleno de patinaje, música y diversión para toda la familia.
+              </p>
+              <a href="#" th:href="@{/eventos}" class="btn btn-outline-primary mt-auto">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../images/exhibicion.webp" th:src="@{/images/exhibicion.webp}" class="card-img-top" alt="Exhibición Navideña">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Exhibición Navideña Roller Speed 2025</h5>
+              <p class="card-text">
+                <small class="text-muted d-block"><strong>Fecha:</strong> Domingo, 15 de Diciembre, 2025</small>
+                <small class="text-muted d-block"><strong>Ubicación:</strong> Plaza de Bolívar</small>
+              </p>
+              <p class="card-text mt-2">
+                Nuestros alumnos presentarán coreografías especiales para celebrar la temporada navideña.
+              </p>
+              <a href="#" th:href="@{/eventos}" class="btn btn-outline-primary mt-auto">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" th:href="@{/eventos}" class="btn btn-primary">Ver todos los eventos</a>
+      </div>
+    </section>
+
+    <section class="container my-5">
+      <h2 class="text-center mb-5">Roller Speed en Números</h2>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="stat-card">
+            <div class="stat-number">250+</div>
+            <h5>Estudiantes activos</h5>
+          </div>
+        </div>
+        <div class="col">
+          <div class="stat-card">
+            <div class="stat-number">15</div>
+            <h5>Instructores certificados</h5>
+          </div>
+        </div>
+        <div class="col">
+          <div class="stat-card">
+            <div class="stat-number">30+</div>
+            <h5>Medallas en competencias</h5>
+          </div>
+        </div>
+        <div class="col">
+          <div class="stat-card">
+            <div class="stat-number">8</div>
+            <h5>Años de experiencia</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container my-5 py-5 bg-light rounded">
+      <h2 class="text-center mb-5">Lo que dicen nuestros alumnos</h2>
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="text-center">
+                <img src="../images/testimonial1.webp" th:src="@{/images/testimonial1.webp}" class="testimonial-image" alt="Testimonio de María">
+              </div>
+              <p class="fst-italic">"Entrar a Roller Speed fue la mejor decisión. No solo he mejorado mi técnica de patinaje, sino que he encontrado una segunda familia. Los instructores son increíbles."</p>
+              <div class="text-end">
+                <strong>María Gómez</strong><br>
+                <small class="text-muted">Estudiante desde 2023</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="text-center">
+                <img src="../images/testimonial2.webp" th:src="@{/images/testimonial2.webp}" class="testimonial-image" alt="Testimonio de Carlos">
+              </div>
+              <p class="fst-italic">"Mi hijo ha ganado mucha confianza desde que empezó en Roller Speed. El ambiente es tan positivo que ahora no quiere faltar a ninguna clase. ¡Increíble progreso!"</p>
+              <div class="text-end">
+                <strong>Carlos Martínez</strong><br>
+                <small class="text-muted">Padre de alumno</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="text-center">
+                <img src="../images/testimonial3.webp" th:src="@{/images/testimonial3.webp}" class="testimonial-image" alt="Testimonio de Ana">
+              </div>
+              <p class="fst-italic">"Llegué sin saber nada de patinaje y en pocos meses ya estaba participando en exhibiciones. La metodología es excelente y los entrenadores muy dedicados."</p>
+              <div class="text-end">
+                <strong>Ana Rodríguez</strong><br>
+                <small class="text-muted">Estudiante desde 2024</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cta-section">
+        <h2 class="mb-3">¿Listo para comenzar tu aventura sobre ruedas?</h2>
+        <p class="lead mb-4">Únete a nuestra comunidad y descubre todo tu potencial</p>
+        <a href="#" th:href="@{/registro/estudiante}" class="btn btn-light btn-lg">Inscríbete Ahora</a>
+      </div>
+    </section>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
