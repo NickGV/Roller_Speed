@@ -259,3 +259,73 @@ main {
 }
 
 /* Eventos */
+
+/* Index */
+
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/hero-banner.webp");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 150px 0;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.stat-card {
+  padding: 30px 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+.testimonial-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.testimonial-content {
+  padding: 25px;
+  background-color: white;
+}
+
+.testimonial-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.cta-section {
+  background-color: #0d6efd;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  border-radius: 10px;
+  margin: 50px 0;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #0d6efd;
+}
+
+/* Index */
