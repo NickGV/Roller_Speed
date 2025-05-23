@@ -1,15 +1,277 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario Instructores</title>
+    <title>Horario Instructores - Roller Speed</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" th:href="@{/css/styles.css}" />
 </head>
 <body>
-  <h2>Horario para Instructores</h2>
-  <p>Lunes a Viernes: 2:00pm - 4:00pm</p>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
     
+    <main class="container mt-5 mb-5">
+        <div class="schedule-header text-center">
+            <h1 class="display-5 fw-bold">Horarios de Instructores</h1>
+            <div class="col-lg-8 mx-auto">
+                <p class="lead mb-0">
+                    Distribución de horarios y asignaciones del equipo de instructores de Roller Speed.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Leyenda -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="alert alert-success text-center" role="alert">
+                    <h5 class="mb-3">Roles de Instructores</h5>
+                    <span class="badge bg-danger me-3">Coordinador</span>
+                    <span class="badge bg-success me-3">Instructor Principal</span>
+                    <span class="badge bg-warning text-dark">Instructor Asistente</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabla de horarios -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover calendar-table">
+                <thead class="table-success">
+                    <tr>
+                        <th style="width: 15%;">Horario</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                        <th>Sábado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-slot fw-bold bg-light">8:00 AM<br>9:30 AM</td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">María González</span>
+                            <span class="badge bg-warning text-dark">Carlos Ruiz</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Luis Martínez</span>
+                            <span class="badge bg-warning text-dark">Ana López</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">María González</span>
+                            <span class="badge bg-warning text-dark">Carlos Ruiz</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Luis Martínez</span>
+                            <span class="badge bg-warning text-dark">Ana López</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">María González</span>
+                            <span class="badge bg-warning text-dark">Pedro Silva</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-danger mb-1 d-block">Roberto Díaz</span>
+                            <span class="badge bg-success">Luis Martínez</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot fw-bold bg-light">10:00 AM<br>11:30 AM</td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Ana López</span>
+                            <span class="badge bg-warning text-dark">Sofia Castro</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Carlos Ruiz</span>
+                            <span class="badge bg-warning text-dark">Miguel Torres</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Ana López</span>
+                            <span class="badge bg-warning text-dark">Sofia Castro</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Carlos Ruiz</span>
+                            <span class="badge bg-warning text-dark">Miguel Torres</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Pedro Silva</span>
+                            <span class="badge bg-warning text-dark">Laura Méndez</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Carlos Ruiz</span>
+                            <span class="badge bg-warning text-dark">Ana López</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot fw-bold bg-light">2:00 PM<br>3:30 PM</td>
+                        <td class="class-cell">
+                            <span class="badge bg-danger mb-1 d-block">Roberto Díaz</span>
+                            <span class="badge bg-success">María González</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Pedro Silva</span>
+                            <span class="badge bg-warning text-dark">Laura Méndez</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-danger mb-1 d-block">Roberto Díaz</span>
+                            <span class="badge bg-success">María González</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Pedro Silva</span>
+                            <span class="badge bg-warning text-dark">Laura Méndez</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-danger mb-1 d-block">Roberto Díaz</span>
+                            <span class="badge bg-success">Luis Martínez</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Ana López</span>
+                            <span class="badge bg-warning text-dark">Carlos Ruiz</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot fw-bold bg-light">4:00 PM<br>5:30 PM</td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Sofia Castro</span>
+                            <span class="badge bg-warning text-dark">Miguel Torres</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-danger mb-1 d-block">Roberto Díaz</span>
+                            <span class="badge bg-success">Pedro Silva</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Sofia Castro</span>
+                            <span class="badge bg-warning text-dark">Miguel Torres</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-danger mb-1 d-block">Roberto Díaz</span>
+                            <span class="badge bg-success">Pedro Silva</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">María González</span>
+                            <span class="badge bg-warning text-dark">Ana López</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Luis Martínez</span>
+                            <span class="badge bg-warning text-dark">Sofia Castro</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot fw-bold bg-light">6:00 PM<br>7:30 PM</td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Laura Méndez</span>
+                            <span class="badge bg-warning text-dark">Miguel Torres</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Carlos Ruiz</span>
+                            <span class="badge bg-warning text-dark">Pedro Silva</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Laura Méndez</span>
+                            <span class="badge bg-warning text-dark">Miguel Torres</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Carlos Ruiz</span>
+                            <span class="badge bg-warning text-dark">Pedro Silva</span>
+                        </td>
+                        <td class="class-cell">
+                            <span class="badge bg-success mb-1 d-block">Ana López</span>
+                            <span class="badge bg-warning text-dark">Sofia Castro</span>
+                        </td>
+                        <td class="class-cell text-muted">
+                            -
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Equipo de Instructores -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">Nuestro Equipo de Instructores</h3>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-danger">Roberto Díaz</h5>
+                        <span class="badge bg-danger mb-2">Coordinador General</span>
+                        <p class="card-text small">15 años de experiencia en patinaje de velocidad. Entrenador certificado nivel nacional.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-success">María González</h5>
+                        <span class="badge bg-success mb-2">Instructora Principal</span>
+                        <p class="card-text small">Especialista en técnicas de iniciación y patinaje artístico. 8 años de experiencia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-success">Luis Martínez</h5>
+                        <span class="badge bg-success mb-2">Instructor Principal</span>
+                        <p class="card-text small">Especialista en entrenamiento avanzado y preparación para competencias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Estadísticas del equipo -->
+        <div class="row mt-4">
+            <div class="col-md-3 mb-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-success">8</h2>
+                        <p class="card-text">Instructores Totales</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-success">42</h2>
+                        <p class="card-text">Horas Semanales</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-success">12</h2>
+                        <p class="card-text">Años Promedio Experiencia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-success">250+</h2>
+                        <p class="card-text">Estudiantes Atendidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="#" th:href="@{/registro/instructor}" class="btn btn-success btn-lg me-3">Únete al Equipo</a>
+            <a href="#" th:href="@{/contacto}" class="btn btn-outline-success btn-lg">Más Información</a>
+        </div>
+    </main>
+    
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
 </body>
 </html>
-
-
