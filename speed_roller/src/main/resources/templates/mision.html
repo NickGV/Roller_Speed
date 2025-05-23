@@ -17,66 +17,185 @@
   <div th:replace="~{fragments/navbar :: navbar}"></div>
 
   <main class="container mt-5 mb-5">
-    <section>
-      <h1 class="text-center mb-4">Nuestra Misión</h1>
-      <p class="lead text-center mb-5">
-        Formamos patinadores integrales, desarrollando habilidades técnicas, físicas y mentales en un entorno seguro y motivador.
+    
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold mb-4">Nuestra Misión</h1>
+      <div class="col-lg-8 mx-auto">
+        <p class="lead">
+          Formamos patinadores integrales, desarrollando habilidades técnicas, físicas y mentales en un entorno seguro y motivador que promueve la excelencia deportiva y los valores humanos.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="../images/patinaje_intermedio.webp" th:src="@{/images/patinaje_intermedio.webp}" class="img-fluid rounded shadow" alt="Entrenamiento de patinadores">
+      </div>
+      <div class="col-lg-6">
+        <h3 class="mb-4 text-primary">¿Quiénes Somos?</h3>
+        <p class="mb-3">
+          En Roller Speed somos una escuela dedicada a la formación de patinadores de velocidad, comprometidos con la excelencia técnica y el desarrollo integral de nuestros estudiantes.
+        </p>
+        <p class="mb-3">
+          Nuestra misión es proporcionar un entrenamiento de alta calidad que permita a nuestros patinadores alcanzar su máximo potencial, tanto a nivel recreativo como competitivo, promoviendo valores como la disciplina, el trabajo en equipo y la perseverancia.
+        </p>
+        <p class="mb-4">
+          Trabajamos para crear una comunidad inclusiva donde cada patinador, independientemente de su nivel, encuentre un espacio para crecer, aprender y disfrutar del patinaje de velocidad.
+        </p>
+        <a href="#" th:href="@{/registro/estudiante}" class="btn btn-primary">Únete a Nosotros</a>
+      </div>
+    </div>
+
+    <!-- Características de Nuestra Misión -->
+    <div class="row g-4 mb-5">
+      <div class="col-12 text-center mb-4">
+        <h2>Pilares de Nuestra Misión</h2>
+        <p class="lead">Los fundamentos que guían nuestro trabajo diario</p>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="feature-icon text-warning mb-3">🏆</div>
+            <h4 class="card-title mb-3">Formación de Excelencia</h4>
+            <p class="card-text">
+              Ofrecemos programas de entrenamiento técnicamente avanzados, diseñados por profesionales del patinaje de velocidad con experiencia internacional.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="feature-icon text-primary mb-3">👨‍👩‍👧‍👦</div>
+            <h4 class="card-title mb-3">Comunidad Inclusiva</h4>
+            <p class="card-text">
+              Creamos un ambiente donde todos son bienvenidos, fomentando el compañerismo y el apoyo mutuo entre patinadores de todas las edades.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="feature-icon text-danger mb-3">❤️</div>
+            <h4 class="card-title mb-3">Pasión por el Deporte</h4>
+            <p class="card-text">
+              Transmitimos nuestra pasión por el patinaje, inspirando a cada estudiante a amar lo que hace y a perseguir sus sueños con determinación.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="feature-icon text-success mb-3">🎯</div>
+            <h4 class="card-title mb-3">Desarrollo Integral</h4>
+            <p class="card-text">
+              No solo formamos atletas, sino personas íntegras con valores sólidos que les servirán dentro y fuera de la pista.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="feature-icon text-info mb-3">🛡️</div>
+            <h4 class="card-title mb-3">Seguridad Primero</h4>
+            <p class="card-text">
+              Mantenemos los más altos estándares de seguridad en nuestras instalaciones y entrenamientos para proteger a nuestros atletas.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body p-4">
+            <div class="feature-icon text-secondary mb-3">🌟</div>
+            <h4 class="card-title mb-3">Innovación Constante</h4>
+            <p class="card-text">
+              Adoptamos nuevas metodologías de entrenamiento y tecnologías para mantenernos a la vanguardia del patinaje de velocidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compromiso con la Comunidad -->
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-5 text-center">
+            <h3 class="card-title mb-4 text-primary">Nuestro Compromiso</h3>
+            <p class="card-text lead mb-4">
+              "En Roller Speed, cada patinador es único y especial. Nos comprometemos a brindar atención personalizada, respetando el ritmo de aprendizaje de cada estudiante y celebrando cada logro, por pequeño que sea."
+            </p>
+            <blockquote class="blockquote">
+              <p class="mb-4 fst-italic">"No solo enseñamos a patinar, formamos campeones de vida"</p>
+              <footer class="blockquote-footer">
+                <cite title="Source Title">Equipo Directivo Roller Speed</cite>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estadísticas de Impacto -->
+    <div class="row mb-5">
+      <div class="col-12 text-center mb-4">
+        <h2>Nuestro Impacto</h2>
+        <p class="lead">Números que reflejan nuestro compromiso con la misión</p>
+      </div>
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">250+</div>
+          <p class="mb-0">Estudiantes Formados</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <p class="mb-0">Años de Experiencia</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">15</div>
+          <p class="mb-0">Medallas Nacionales</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">98%</div>
+          <p class="mb-0">Satisfacción de Padres</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center p-5 bg-light rounded">
+      <h3 class="mb-3">¿Quieres Ser Parte de Nuestra Misión?</h3>
+      <p class="lead mb-4">
+        Únete a Roller Speed y experimenta una formación integral que va más allá del patinaje.
       </p>
-      
-      <div class="row mb-5">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <img src="../images/patinaje_intermedio.webp" class="mission-image" alt="Entrenamiento de patinadores" th:src="@{/images/patinaje_intermedio.webp}">
-        </div>
-        <div class="col-lg-6">
-          <h3 class="mb-4">¿Quiénes somos?</h3>
-          <p class="mb-3">
-            En Roller Speed somos una escuela dedicada a la formación de patinadores de velocidad, comprometidos con la excelencia técnica y el desarrollo integral de nuestros estudiantes.
-          </p>
-          <p class="mb-3">
-            Nuestra misión es proporcionar un entrenamiento de alta calidad que permita a nuestros patinadores alcanzar su máximo potencial, tanto a nivel recreativo como competitivo, promoviendo valores como la disciplina, el trabajo en equipo y la perseverancia.
-          </p>
-          <p>
-            Trabajamos para crear una comunidad inclusiva donde cada patinador, independientemente de su nivel, encuentre un espacio para crecer, aprender y disfrutar del patinaje de velocidad.
-          </p>
-        </div>
+      <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+        <a href="#" th:href="@{/registro/estudiante}" class="btn btn-primary btn-lg">Inscríbete Como Estudiante</a>
+        <a href="#" th:href="@{/registro/instructor}" class="btn btn-outline-primary btn-lg">Únete Como Instructor</a>
+        <a href="#" th:href="@{/servicios}" class="btn btn-outline-secondary btn-lg">Conoce Nuestros Servicios</a>
       </div>
-      
-      <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-        <div class="col">
-          <div class="card feature-card p-4">
-            <div class="text-center">
-              <i class="bi bi-trophy feature-icon">🏆</i>
-            </div>
-            <h4 class="card-title text-center mb-3">Formación de Excelencia</h4>
-            <p class="card-text text-center">
-              Ofrecemos programas de entrenamiento técnicamente avanzados, diseñados por profesionales del patinaje de velocidad.
-            </p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card feature-card p-4">
-            <div class="text-center">
-              <i class="bi bi-people feature-icon">👨‍👩‍👧‍👦</i>
-            </div>
-            <h4 class="card-title text-center mb-3">Comunidad Inclusiva</h4>
-            <p class="card-text text-center">
-              Creamos un ambiente donde todos son bienvenidos, fomentando el compañerismo y el apoyo mutuo.
-            </p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card feature-card p-4">
-            <div class="text-center">
-              <i class="bi bi-heart feature-icon">❤️</i>
-            </div>
-            <h4 class="card-title text-center mb-3">Pasión por el Deporte</h4>
-            <p class="card-text text-center">
-              Transmitimos nuestra pasión por el patinaje, inspirando a cada estudiante a amar lo que hace.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <div th:replace="~{fragments/footer :: footer}"></div>
