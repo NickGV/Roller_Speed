@@ -1,0 +1,35 @@
+package com.speedroller.speed_roller.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.speedroller.speed_roller.Model.Instructor;
+import com.speedroller.speed_roller.Repository.InstructorRepository;
+
+@Service
+public class instructorService {
+
+    @Autowired
+    private InstructorRepository instructorRepository;
+
+    public Instructor saveInstructor(Instructor instructor) {
+        return instructorRepository.save(instructor);
+    }
+
+    public List<Instructor> getInstructors() {
+        return instructorRepository.findAll();
+    }
+
+    public Optional<Instructor> getInstructorById(Long id) {
+        return instructorRepository.findById(id);
+    }
+
+    public void deleteInstructor(Long id) {
+        instructorRepository.deleteById(id);
+    }
+    
+}
+

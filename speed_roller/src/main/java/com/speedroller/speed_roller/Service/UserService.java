@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.speedroller.speed_roller.Model.User;
 import com.speedroller.speed_roller.Repository.UserRepository;
-import com.speedroller.speed_roller.model.User;
 
 @Service
 public class UserService {

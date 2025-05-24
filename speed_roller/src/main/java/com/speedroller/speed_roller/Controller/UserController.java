@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.speedroller.speed_roller.Model.User;
 import com.speedroller.speed_roller.Service.UserService;
-import com.speedroller.speed_roller.model.User;
-
-
 
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -29,8 +27,8 @@ public class UserController {
     @GetMapping(value = "/listar")
     public String getAllUsers(Model model) { 
         List<User> usersList = userService.getUsers();
-        model.addAttribute("usuarios", usersList);
-        return "usuarios";
+        model.addAttribute("usuariosdb", usersList);
+        return "Usuarios";
     }
     
     

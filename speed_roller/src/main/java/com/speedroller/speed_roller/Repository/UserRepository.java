@@ -1,8 +1,9 @@
 package com.speedroller.speed_roller.Repository;
 
-import com.speedroller.speed_roller.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.speedroller.speed_roller.Model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

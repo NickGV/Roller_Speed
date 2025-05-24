@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.model;
+package com.speedroller.speed_roller.Model;
 
 
 import jakarta.persistence.*;
