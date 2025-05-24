@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tbl_usuarios")
-public class Usuario {
+public class User {
 
     //Identificador único del usuario
     @Id
