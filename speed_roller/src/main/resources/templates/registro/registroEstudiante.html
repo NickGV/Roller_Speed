@@ -33,7 +33,7 @@
                         <h3 class="mb-0">Datos Personales</h3>
                     </div>
                     <div class="form-body">
-                        <form action="#" th:action="@{/registro/estudiante}" method="POST" class="needs-validation" novalidate>
+                        <form action="#" th:action="@{/registro/guardarEstudiante}" method="POST" class="needs-validation" novalidate>
                             
                             <div class="alert alert-info" role="alert">
                                 <i class="bi bi-info-circle-fill"></i> Los campos marcados con <span class="text-danger">*</span> son obligatorios.
@@ -103,7 +103,7 @@
                             
                             <div class="mb-4">
                                 <label for="nivelExperiencia" class="form-label required-field">Nivel de Experiencia</label>
-                                <select class="form-select" id="nivelExperiencia" name="nivelExperiencia" required>
+                                <select class="form-select" id="nivelExperiencia" name="experiencia" required>
                                     <option value="" selected disabled>Selecciona tu nivel</option>
                                     <option value="principiante">Principiante (Sin experiencia previa)</option>
                                     <option value="intermedio">Intermedio (Algo de experiencia)</option>

@@ -25,7 +25,7 @@ public class Student {
     private String apellido;
 
     @Column(nullable = false, length = 20)
-    private String edad;
+    private String fechaNacimiento;
 
     @Column(nullable = false, length = 20)
     private String genero;

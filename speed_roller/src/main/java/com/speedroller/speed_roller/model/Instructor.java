@@ -19,7 +19,7 @@ public class Instructor {
     private String nombre;
 
     @Column(nullable = false, length = 20)
-    private String numeroDocumento;
+    private String documento;
 
     @Column(nullable = false, length = 100)
     private String email;
@@ -31,7 +31,13 @@ public class Instructor {
     private String especialidad;
 
     @Column(nullable = false, length = 40)
-    private String tiempoExperiencia;
+    private Integer aniosExperiencia;
+
+    @Column(nullable = false, length = 255)
+    private String certificaciones;
+
+    @Column(nullable = false, length = 55)
+    private String disponibilidad;
 
 
     

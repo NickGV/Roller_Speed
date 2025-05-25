@@ -13,7 +13,7 @@
       <tr>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>Edad</th>
+        <th>Fecha de Nacimiento</th>
         <th>Género</th>
         <th>Dirección</th>
         <th>Email</th>
@@ -26,7 +26,7 @@
       <tr th:each="student : ${Estudiantesdb}">
         <td th:text="${student.nombre}"></td>
         <td th:text="${student.apellido}"></td>
-        <td th:text="${student.edad}"></td>
+        <td th:text="${student.fechaNacimiento}"></td>
         <td th:text="${student.genero}"></td>
         <td th:text="${student.direccion}"></td>
         <td th:text="${student.email}"></td>
