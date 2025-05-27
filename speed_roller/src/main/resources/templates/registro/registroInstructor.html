@@ -33,7 +33,7 @@
                         <h3 class="mb-0">Información Profesional</h3>
                     </div>
                     <div class="form-body">
-                        <form action="#" th:action="@{/registro/instructor}" method="POST" class="needs-validation" novalidate>
+                        <form action="#" th:action="@{/registro/guardarInstructor}" method="POST" class="needs-validation" novalidate>
                             
                             <div class="alert alert-info" role="alert">
                                 <i class="bi bi-info-circle-fill"></i> Los campos marcados con <span class="text-danger">*</span> son obligatorios.
@@ -102,10 +102,7 @@
                                 <textarea class="form-control" id="certificaciones" name="certificaciones" rows="2" placeholder="Lista tus certificaciones relevantes"></textarea>
                             </div>
                             
-                            <div class="mb-4">
-                                <label for="experienciaPrevia" class="form-label">Experiencia Previa</label>
-                                <textarea class="form-control" id="experienciaPrevia" name="experienciaPrevia" rows="3" placeholder="Describe brevemente tu experiencia previa como instructor"></textarea>
-                            </div>
+                           
                             
                             <div class="mb-4">
                                 <label for="disponibilidad" class="form-label required-field">Disponibilidad Horaria</label>
