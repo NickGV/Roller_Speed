@@ -13,90 +13,161 @@
   <link rel="stylesheet" href="../css/styles.css" th:href="@{/css/styles.css}" />
 </head>
 <body>
-
+  
   <div th:replace="~{fragments/navbar :: navbar}"></div>
 
   <main class="container mt-5 mb-5">
-    <section>
-      <h1 class="text-center mb-4">Próximos Eventos</h1>
-      <p class="lead text-center mb-5">
-        ¡No te pierdas nuestros emocionantes eventos! Competiciones, exhibiciones, talleres y mucho más. Mantente al tanto de nuestras actividades y únete a la comunidad Roller Speed.
-      </p>
+    
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold mb-4">Eventos de la Escuela</h1>
+      <div class="col-lg-8 mx-auto">
+        <p class="lead">
+          Participa en nuestros emocionantes eventos, competencias y actividades especiales diseñadas para toda la comunidad Roller Speed.
+        </p>
+      </div>
+    </div>
 
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
-          <div class="card h-100 shadow-sm">
-            <img src="../images/festival_verano.webp" class="card-img-top-custom" alt="Festival de Patinaje de Verano">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Festival de Patinaje de Verano 2025</h5>
-              <p class="card-text">
-                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 20 de Julio, 2025</small>
-                <small class="text-muted d-block"><strong>Hora:</strong> 10:00 AM - 4:00 PM</small>
-                <small class="text-muted d-block"><strong>Ubicación:</strong> Patinódromo Municipal de Santa Marta</small>
-              </p>
-              <p class="card-text mt-2">
-                Celebra el verano con nosotros en un día lleno de patinaje, música y diversión para toda la familia. Habrá demostraciones, competencias amistosas y talleres gratuitos.
-              </p>
-              <a href="#" class="btn btn-primary mt-auto">Ver Detalles e Inscribirse</a>
+    <!-- Próximos Eventos -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="mb-4">🗓️ Próximos Eventos</h2>
+      </div>
+      
+      <div class="col-lg-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="../images/festival_verano.webp" th:src="@{/images/festival_verano.webp}" class="card-img-top-custom" alt="Festival de Patinaje de Verano">
+          <div class="card-body">
+            <span class="badge bg-success mb-2">PRÓXIMO EVENTO</span>
+            <h5 class="card-title">Festival de Patinaje de Verano 2025</h5>
+            <div class="mb-3">
+              <p class="mb-1"><strong>📅 Fecha:</strong> Sábado, 20 de Julio, 2025</p>
+              <p class="mb-1"><strong>🕒 Hora:</strong> 8:00 AM - 6:00 PM</p>
+              <p class="mb-1"><strong>📍 Ubicación:</strong> Patinódromo Municipal</p>
+              <p class="mb-1"><strong>💰 Entrada:</strong> Gratuita</p>
             </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100 shadow-sm">
-            <img src="../images/competencia_regional.webp" class="card-img-top-custom" alt="Competencia Regional de Velocidad">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Competencia Regional de Velocidad "Costa Dorada"</h5>
-              <p class="card-text">
-                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 14 de Septiembre, 2025</small>
-                <small class="text-muted d-block"><strong>Hora:</strong> 9:00 AM (Inicio de pruebas)</small>
-                <small class="text-muted d-block"><strong>Ubicación:</strong> Pista de alta velocidad "El Rodadero"</small>
-              </p>
-              <p class="card-text mt-2">
-                Demuestra tu velocidad y compite con los mejores patinadores de la región. Categorías desde infantil hasta senior. ¡Inscripciones abiertas!
-              </p>
-              <a href="#" class="btn btn-primary mt-auto">Más Información y Registro</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100 shadow-sm">
-            <img src="../images/taller.webp" class="card-img-top-custom" alt="Taller de Técnica de Patinaje Artístico">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Taller de Técnica de Patinaje Artístico con Campeona Nacional</h5>
-              <p class="card-text">
-                <small class="text-muted d-block"><strong>Fecha:</strong> Sábado, 26 de Octubre, 2025</small>
-                <small class="text-muted d-block"><strong>Hora:</strong> 2:00 PM - 5:00 PM</small>
-                <small class="text-muted d-block"><strong>Ubicación:</strong> Coliseo Menor de Santa Marta</small>
-              </p>
-              <p class="card-text mt-2">
-                Oportunidad única para aprender y perfeccionar tu técnica de patinaje artístico con una reconocida campeona nacional. Cupos limitados.
-              </p>
-              <a href="#" class="btn btn-primary mt-auto">Reservar Cupo</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100 shadow-sm">
-            <img src="../images/exhibicion.webp" class="card-img-top-custom" alt="Exhibición Navideña Roller Speed">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Exhibición Navideña Roller Speed 2025</h5>
-              <p class="card-text">
-                <small class="text-muted d-block"><strong>Fecha:</strong> Domingo, 15 de Diciembre, 2025</small>
-                <small class="text-muted d-block"><strong>Hora:</strong> 6:00 PM</small>
-                <small class="text-muted d-block"><strong>Ubicación:</strong> Plaza de Bolívar, Santa Marta</small>
-              </p>
-              <p class="card-text mt-2">
-                Nuestros alumnos presentarán coreografías especiales para celebrar la temporada navideña. Un evento lleno de luz, color y talento sobre ruedas. ¡Entrada libre!
-              </p>
-              <a href="#" class="btn btn-primary mt-auto">Confirmar Asistencia</a>
+            <p class="card-text">
+              Celebra el verano con nosotros en un día lleno de patinaje, música, comida y diversión para toda la familia. Habrán exhibiciones, competencias amistosas y actividades para todas las edades.
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary btn-sm">Registrarse</a>
+              <a href="#" class="btn btn-outline-primary btn-sm">Más Detalles</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="col-lg-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="../images/competencia_regional.webp" th:src="@{/images/competencia_regional.webp}" class="card-img-top-custom" alt="Campeonato Regional">
+          <div class="card-body">
+            <span class="badge bg-warning text-dark mb-2">COMPETENCIA</span>
+            <h5 class="card-title">Campeonato Regional de Velocidad</h5>
+            <div class="mb-3">
+              <p class="mb-1"><strong>📅 Fecha:</strong> Sábado y Domingo, 15-16 de Agosto, 2025</p>
+              <p class="mb-1"><strong>🕒 Hora:</strong> 7:00 AM - 7:00 PM</p>
+              <p class="mb-1"><strong>📍 Ubicación:</strong> Coliseo del Deporte</p>
+              <p class="mb-1"><strong>💰 Inscripción:</strong> $50.000 por categoría</p>
+            </div>
+            <p class="card-text">
+              Competencia oficial avalada por la federación. Categorías: Infantil, Juvenil, Adultos y Veteranos. Premios en efectivo y trofeos para los primeros lugares.
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-warning text-dark btn-sm">Inscribirse</a>
+              <a href="#" class="btn btn-outline-warning btn-sm">Reglamento</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eventos Recurrentes -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="mb-4">🔄 Eventos Recurrentes</h2>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <div class="feature-icon mb-3">🏆</div>
+            <h5 class="card-title">Torneos Internos</h5>
+            <p class="card-text">Cada último sábado del mes realizamos torneos amistosos entre nuestros estudiantes.</p>
+            <span class="badge bg-primary">Mensual</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <div class="feature-icon mb-3">🎭</div>
+            <h5 class="card-title">Exhibiciones</h5>
+            <p class="card-text">Presentaciones artísticas y demostraciones técnicas para mostrar los talentos de nuestros alumnos.</p>
+            <span class="badge bg-info">Bimensual</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <div class="feature-icon mb-3">👨‍🏫</div>
+            <h5 class="card-title">Clínicas Técnicas</h5>
+            <p class="card-text">Talleres especializados con entrenadores invitados para perfeccionar técnicas específicas.</p>
+            <span class="badge bg-success">Trimestral</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eventos Pasados Destacados -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="mb-4">📸 Eventos Pasados Destacados</h2>
+      </div>
+      
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="../images/exhibicion.webp" th:src="@{/images/exhibicion.webp}" class="card-img-top-custom" alt="Exhibición Navideña 2024">
+          <div class="card-body">
+            <h6 class="card-title">Exhibición Navideña 2024</h6>
+            <p class="card-text small">Una noche mágica llena de coreografías especiales y la participación de más de 100 patinadores.</p>
+            <small class="text-muted">Diciembre 2024</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="../images/campeonato_nacional.webp" th:src="@{/images/campeonato_nacional.webp}" class="card-img-top-custom" alt="Campeonato Nacional 2024">
+          <div class="card-body">
+            <h6 class="card-title">Campeonato Nacional 2024</h6>
+            <p class="card-text small">Nuestros atletas obtuvieron 15 medallas, incluyendo 5 primeros lugares en diferentes categorías.</p>
+            <small class="text-muted">Octubre 2024</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="../images/festival_familias.webp" th:src="@{/images/festival_familias.webp}" class="card-img-top-custom" alt="Festival de las Familias 2024">
+          <div class="card-body">
+            <h6 class="card-title">Festival de las Familias 2024</h6>
+            <p class="card-text small">Un evento especial donde padres e hijos compartieron pista en actividades recreativas.</p>
+            <small class="text-muted">Agosto 2024</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center p-5 bg-light rounded">
+      <h3 class="mb-3">¿Quieres Participar en Nuestros Eventos?</h3>
+      <p class="lead mb-4">Únete a Roller Speed y sé parte de una comunidad activa llena de eventos emocionantes.</p>
+      <a href="#" th:href="@{/registro/estudiante}" class="btn btn-primary btn-lg me-3">Inscríbete Ahora</a>
+      <a href="#" class="btn btn-outline-primary btn-lg">Calendario Completo</a>
+    </div>
   </main>
 
   <div th:replace="~{fragments/footer :: footer}"></div>
