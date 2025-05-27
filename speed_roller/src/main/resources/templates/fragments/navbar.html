@@ -1,74 +1,154 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
     <header th:fragment="navbar" class="text-center p-4">
-        <nav class="navbar navbar-expand-lg bg-light border-radius-4">
-            <div class="container">
-                <a class="navbar-brand" href="/home" th:href="@{/}">Roller Speed</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <!-- Corporativo -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCorporativo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Corporativo
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCorporativo">
-                                <li><a class="dropdown-item" th:href="@{/corporativo/mision}">Misión</a></li>
-                                <li><a class="dropdown-item" th:href="@{/corporativo/vision}">Visión</a></li>
-                                <li><a class="dropdown-item" th:href="@{/corporativo/valores}">Valores</a></li>
-                                <li><a class="dropdown-item" th:href="@{/corporativo/servicios}">Servicios</a></li>
-                            </ul>
-                        </li>
+      <nav class="navbar navbar-expand-lg bg-light shadow-sm rounded">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#" th:href="@{/home}">
+            <span class="text-primary">Roller</span
+            ><span class="text-warning">Speed</span>
+          </a>
 
-                        <!-- Eventos -->
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/eventos}">Eventos de la escuela</a>
-                        </li>
-                        
-                        <!-- Registro -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegistro" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Registro
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownRegistro">
-                                <li><a class="dropdown-item" th:href="@{/registro/estudiante}">Inscripción de Estudiantes</a></li>
-                                <li><a class="dropdown-item" th:href="@{/registro/instructor}">Inscripción de Instructor</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li><h6 class="dropdown-header">Clases</h6></li>
-                                <li><a class="dropdown-item" th:href="@{/clases/estudiantes}">Estudiantes</a></li>
-                                <li><a class="dropdown-item" th:href="@{/clases/estudiantes/listar}">Listar Estudiantes</a></li>
-                            </ul>
-                        </li>
-                        
-                        <!-- Calendario u Horario -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHorarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Calendario u Horario de Clases
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownHorarios">
-                                <li><a class="dropdown-item" th:href="@{/horarios/estudiantes}">Estudiantes</a></li>
-                                <li><a class="dropdown-item" th:href="@{/horarios/instructor}">Instructor</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <a th:href="@{/registro/estudiante}" class="btn btn-join">Únete</a>
-                </div>
-            </div>
-        </nav>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/home}">Inicio</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownCorporativo"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Corporativo
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownCorporativo"
+                >
+                  <li>
+                    <a class="dropdown-item" th:href="@{/corporativo/mision}"
+                      >Misión</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/corporativo/vision}"
+                      >Visión</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/corporativo/valores}"
+                      >Valores</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/corporativo/servicios}"
+                      >Servicios</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/eventos}">Eventos</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownRegistro"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Registro
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownRegistro"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      th:href="@{/registro/nuevoEstudiante}"
+                      >Inscripción de Estudiantes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      th:href="@{/registro/nuevoInstructor}"
+                      >Inscripción de Instructor</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/estudiantes/listar}"
+                  >Estudiantes</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownHorarios"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Horarios
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownHorarios"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      th:href="@{/calendarios/estudiantes}"
+                      >Horarios Estudiantes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      th:href="@{/calendarios/instructores}"
+                      >Horarios Instructores</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            
+            <a th:href="@{/registro/nuevoEstudiante}" class="btn btn-join"
+              >Únete</a
+            >
+          </div>
+        </div>
+      </nav>
     </header>
-</body>
+  </body>
 </html>

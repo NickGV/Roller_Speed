@@ -1,76 +1,137 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <footer th:fragment="footer" class="bg-dark text-light pt-5 pb-3 mt-5">
-        <div class="container">
-            <div class="row">
-                <!-- Información de la Escuela -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5 class="mb-3">Roller Speed</h5>
-                    <p class="mb-3">
-                        Escuela de patinaje de velocidad comprometida con la formación integral de atletas y el desarrollo de valores deportivos.
-                    </p>
-                    <div class="d-flex">
-                        <a href="#" class="text-light me-3"><i class="bi bi-facebook">📘</i></a>
-                        <a href="#" class="text-light me-3"><i class="bi bi-instagram">📷</i></a>
-                        <a href="#" class="text-light me-3"><i class="bi bi-youtube">📺</i></a>
-                        <a href="#" class="text-light"><i class="bi bi-twitter">🐦</i></a>
-                    </div>
-                </div>
-                
-                <!-- Enlaces Rápidos -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="mb-3">Enlaces Rápidos</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" th:href="@{/}" class="text-light text-decoration-none">Inicio</a></li>
-                        <li><a href="#" th:href="@{/servicios}" class="text-light text-decoration-none">Servicios</a></li>
-                        <li><a href="#" th:href="@{/eventos}" class="text-light text-decoration-none">Eventos</a></li>
-                        <li><a href="#" th:href="@{/horarios/estudiantes}" class="text-light text-decoration-none">Horarios</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Corporativo -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="mb-3">Corporativo</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" th:href="@{/corporativo/mision}" class="text-light text-decoration-none">Misión</a></li>
-                        <li><a href="#" th:href="@{/corporativo/vision}" class="text-light text-decoration-none">Visión</a></li>
-                        <li><a href="#" th:href="@{/corporativo/valores}" class="text-light text-decoration-none">Valores</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contacto -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h6 class="mb-3">Contacto</h6>
-                    <p class="mb-1"><strong>📍 Dirección:</strong></p>
-                    <p class="mb-2">Calle 22 #15-30, Santa Marta, Magdalena</p>
-                    
-                    <p class="mb-1"><strong>📞 Teléfono:</strong></p>
-                    <p class="mb-2">+57 (5) 123-4567</p>
-                    
-                    <p class="mb-1"><strong>✉️ Email:</strong></p>
-                    <p class="mb-2">info@rollerspeed.com</p>
-                    
-                    <p class="mb-1"><strong>🕒 Horarios:</strong></p>
-                    <p class="mb-0">Lunes a Sábado: 8:00 AM - 8:00 PM</p>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <footer th:fragment="footer" class="bg-dark text-light pt-4 pb-3 mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5 class="mb-3">Roller Speed</h5>
+            <p class="mb-3">
+              Escuela de patinaje de velocidad comprometida con la formación
+              integral de atletas y el desarrollo de valores deportivos.
+            </p>
+            <div class="d-flex">
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-facebook">📘</i></a
+              >
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-instagram">📷</i></a
+              >
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-youtube">📺</i></a
+              >
+              <a href="#" class="text-light"><i class="bi bi-twitter">🐦</i></a>
             </div>
-            
-            <hr class="my-4">
-            
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 Roller Speed. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-light text-decoration-none me-3">Política de Privacidad</a>
-                    <a href="#" class="text-light text-decoration-none">Términos y Condiciones</a>
-                </div>
-            </div>
+          </div>
+
+          <!-- Enlaces Rápidos -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h6 class="mb-3">Enlaces Rápidos</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/home}"
+                  class="text-light text-decoration-none"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/corporativo/servicios}"
+                  class="text-light text-decoration-none"
+                  >Servicios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/eventos}"
+                  class="text-light text-decoration-none"
+                  >Eventos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/calendarios/estudiantes}"
+                  class="text-light text-decoration-none"
+                  >Horarios</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Corporativo -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h6 class="mb-3">Corporativo</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/corporativo/mision}"
+                  class="text-light text-decoration-none"
+                  >Misión</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/corporativo/vision}"
+                  class="text-light text-decoration-none"
+                  >Visión</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  th:href="@{/corporativo/valores}"
+                  class="text-light text-decoration-none"
+                  >Valores</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contacto -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h6 class="mb-3">Contacto</h6>
+            <p class="mb-1"><strong>📍 Dirección:</strong></p>
+            <p class="mb-2">Calle 22 #15-30, Santa Marta, Magdalena</p>
+
+            <p class="mb-1"><strong>📞 Teléfono:</strong></p>
+            <p class="mb-2">+57 (5) 123-4567</p>
+
+            <p class="mb-1"><strong>✉️ Email:</strong></p>
+            <p class="mb-2">info@rollerspeed.com</p>
+
+            <p class="mb-1"><strong>🕒 Horarios:</strong></p>
+            <p class="mb-0">Lunes a Sábado: 8:00 AM - 8:00 PM</p>
+          </div>
         </div>
+
+        <hr class="my-4" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-0">
+              &copy; 2025 Roller Speed. Todos los derechos reservados.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="#" class="text-light text-decoration-none me-3"
+              >Política de Privacidad</a
+            >
+            <a href="#" class="text-light text-decoration-none"
+              >Términos y Condiciones</a
+            >
+          </div>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

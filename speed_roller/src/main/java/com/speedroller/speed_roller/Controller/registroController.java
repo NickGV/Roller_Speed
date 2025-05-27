@@ -27,7 +27,7 @@ public class registroController {
     @GetMapping("/nuevoEstudiante")
     public String mostrarFormularioNuevoEstudiante(Model model) {
         model.addAttribute("estudiante", new Student());
-        return "registro/registroEstudiante"; // Crea este archivo en templates/estudiantes/
+        return "registro/registroEstudiante"; 
     }
 
     // Guardar estudiante enviado desde el formulario
@@ -42,8 +42,7 @@ public class registroController {
     @GetMapping("/nuevoInstructor")
     public String mostrarFormularioNuevoInstructor(Model model) {
         model.addAttribute("instructor", new Instructor());
-        return "registro/registroInstructor"; // Crea este archivo en templates/estudiantes/
-    
+        return "registro/registroInstructor"; 
     }
     
 
