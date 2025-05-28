@@ -1,9 +1,9 @@
-package com.speedroller.speed_roller.Repository;
+package com.speedroller.speed_roller.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.speedroller.speed_roller.Model.Instructor;
+import com.speedroller.speed_roller.model.Instructor;
 
 @Repository
 public interface InstructorRepository extends JpaRepository<Instructor, Long> {

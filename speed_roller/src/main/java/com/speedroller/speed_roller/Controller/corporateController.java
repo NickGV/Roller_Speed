@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Controller;
+package com.speedroller.speed_roller.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/corporativo")
-public class corporativoController {
+public class corporateController {
 
   @GetMapping("/mision")
   public String mision() {
-    return "corporativo/mision";
+    return "corporativo/mission";
   }
 
   @GetMapping("/vision")
@@ -20,11 +20,11 @@ public class corporativoController {
 
   @GetMapping("/valores")
   public String valores() {
-    return "corporativo/valores";
+    return "corporativo/values";
   }
 
   @GetMapping("/servicios")
   public String servicios() {
-    return "corporativo/servicios";
+    return "corporativo/services";
   }
 }

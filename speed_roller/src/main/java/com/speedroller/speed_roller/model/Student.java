@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Model;
+package com.speedroller.speed_roller.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,13 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "tbl_estudiantes")
 public class Student {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
   
     private long id;
 
-   
     @Column(nullable = false, length = 50)
     private String nombre;
 
@@ -32,7 +30,6 @@ public class Student {
     @Column(nullable = false, length = 100)
     private String direccion;
 
-    
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
@@ -45,13 +42,12 @@ public class Student {
     @Column(nullable = false, length = 400)  
     private String comentarios;
 
-    // Nuevo campo: Método de pago
     @Column(nullable = false, length = 50)
     private String metodoPago;
 
-    
-    // Nuevo campo: Rol (automático)
     @Column(nullable = false, length = 20)
-    private String rol = "ALUMNO"; // Valor predeterminado
+    private String rol = "ALUMNO"; 
 
 }
+
+// TODO: Agregar campos de password 

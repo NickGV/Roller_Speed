@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Controller;
+package com.speedroller.speed_roller.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

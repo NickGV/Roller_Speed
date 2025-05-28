@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Service;
+package com.speedroller.speed_roller.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.speedroller.speed_roller.Model.Instructor;
-import com.speedroller.speed_roller.Repository.InstructorRepository;
+import com.speedroller.speed_roller.model.Instructor;
+import com.speedroller.speed_roller.repository.InstructorRepository;
 
 @Service
 public class instructorService {

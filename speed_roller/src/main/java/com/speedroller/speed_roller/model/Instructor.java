@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Model;
+package com.speedroller.speed_roller.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,7 +38,6 @@ public class Instructor {
 
     @Column(nullable = false, length = 55)
     private String disponibilidad;
-
-
-    
 }
+
+//  TODO: Agregar campos de password

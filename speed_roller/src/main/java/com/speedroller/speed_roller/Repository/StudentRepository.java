@@ -1,8 +1,8 @@
-package com.speedroller.speed_roller.Repository;
+package com.speedroller.speed_roller.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.speedroller.speed_roller.Model.Student;
+import com.speedroller.speed_roller.model.Student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
