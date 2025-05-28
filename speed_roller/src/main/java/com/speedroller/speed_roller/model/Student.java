@@ -45,4 +45,12 @@ public class Student {
     @Column(nullable = false, length = 400)  
     private String comentarios;
 
+    // Nuevo campo: Método de pago
+    @Column(nullable = false, length = 50)
+    private String metodoPago;
+
+    // Nuevo campo: Rol (automático)
+    @Column(nullable = false, length = 20)
+    private String rol = "ALUMNO"; // Valor predeterminado
+
 }
