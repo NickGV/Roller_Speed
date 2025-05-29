@@ -38,6 +38,8 @@ public class Instructor {
 
     @Column(nullable = false, length = 55)
     private String disponibilidad;
+
+    @Column(nullable = false, length = 255)
+    private String password;
 }
 
-//  TODO: Agregar campos de password

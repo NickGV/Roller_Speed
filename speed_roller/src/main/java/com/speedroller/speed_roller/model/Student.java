@@ -48,6 +48,7 @@ public class Student {
     @Column(nullable = false, length = 20)
     private String rol = "ALUMNO"; 
 
+    @Column(nullable = false, length = 255)
+    private String password;
 }
 
-// TODO: Agregar campos de password 
