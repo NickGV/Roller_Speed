@@ -1,13 +1,14 @@
-
-package com.speedroller.speed_roller.Service;
+package com.speedroller.speed_roller.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-;
+
 import com.speedroller.speed_roller.model.Instructor;
 import com.speedroller.speed_roller.model.Student;
-import com.speedroller.speed_roller.Repository.ClassRepository;
+import com.speedroller.speed_roller.model.ClassSchedule;
+import com.speedroller.speed_roller.repository.ClassScheduleRepository;
+
 
 @Service
 public class ClassScheduleService {
@@ -34,7 +35,7 @@ public class ClassScheduleService {
     // Asignar instructor a una clase
     public void assignInstructorToClass(Long classId, Long instructorId) {
         ClassSchedule clase = scheduleRepository.findById(classId).orElseThrow(() -> new RuntimeException("Clase no encontrada"));
-        Instructor instructor = instructorService.getInstructorById(instructorId);
+        Instructor instructor = instructorService.getInstructorById(instructorId).orElseThrow(() -> new RuntimeException("Instructor no encontrado"));
         clase.setInstructor(instructor);
         scheduleRepository.save(clase);
     }

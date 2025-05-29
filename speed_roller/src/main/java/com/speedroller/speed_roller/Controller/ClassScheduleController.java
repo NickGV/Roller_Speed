@@ -1,8 +1,20 @@
-package com.speedroller.speed_roller.Controller;
+package com.speedroller.speed_roller.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.speedroller.speed_roller.model.ClassSchedule;
+import com.speedroller.speed_roller.service.ClassScheduleService;
+import com.speedroller.speed_roller.service.InstructorService;
+import com.speedroller.speed_roller.service.StudentService;
 
 @Controller
 @RequestMapping("/administrador/clases")
@@ -29,8 +41,8 @@ public class ClassScheduleController {
     @GetMapping("/nueva-clase")
     public String mostrarFormularioNuevaClase(Model model) {
         model.addAttribute("clase", new ClassSchedule());
-        model.addAttribute("instructores", instructorService.getAllInstructors());
-        model.addAttribute("estudiantes", studentService.getAllStudents());
+        model.addAttribute("instructores", instructorService.getInstructors());
+        model.addAttribute("estudiantes", studentService.getStudents());
         return "administrador/nuevaClase";
     }
 

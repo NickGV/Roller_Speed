@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.speedroller.speed_roller.model.Instructor;
 import com.speedroller.speed_roller.model.Student;
-import com.speedroller.speed_roller.service.instructorService;
-import com.speedroller.speed_roller.service.studentService;
+import com.speedroller.speed_roller.service.InstructorService;
+import com.speedroller.speed_roller.service.StudentService;
 
 
 @Controller
@@ -19,7 +19,7 @@ import com.speedroller.speed_roller.service.studentService;
 public class registerController {
 
     @Autowired
-    private studentService estudianteService;
+    private StudentService estudianteService;
 
     @GetMapping("/nuevoEstudiante")
     public String mostrarFormularioNuevoEstudiante(Model model) {
@@ -33,7 +33,7 @@ public class registerController {
         return "redirect:/estudiantes/listStudents";
     }
     @Autowired
-    private instructorService instructorService;
+    private InstructorService instructorService;
 
     @GetMapping("/nuevoInstructor")
     public String mostrarFormularioNuevoInstructor(Model model) {

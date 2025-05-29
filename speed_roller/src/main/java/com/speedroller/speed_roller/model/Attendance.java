@@ -22,7 +22,7 @@ public class Attendance {
 
     @ManyToOne
     @JoinColumn(name = "clase_id", nullable = false)
-    private Class clase;
+    private ClassSchedule clase;
 
     @Column(name = "fecha_asistencia", nullable = false)
     private LocalDateTime fechaAsistencia;

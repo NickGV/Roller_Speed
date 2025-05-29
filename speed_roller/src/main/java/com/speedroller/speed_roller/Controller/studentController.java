@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.speedroller.speed_roller.model.Student;
-import com.speedroller.speed_roller.service.studentService;
+import com.speedroller.speed_roller.service.StudentService;
 
 import org.springframework.ui.Model;
 
@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 public class studentController {
 
     @Autowired
-    private studentService estudianteService;
+    private StudentService estudianteService;
 
     @RequestMapping(value = "/listar") 
     public String getAllStudens(Model model) {
