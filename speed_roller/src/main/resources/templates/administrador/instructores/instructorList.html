@@ -116,7 +116,7 @@
                   </thead>
                   <tbody>
                     <tr
-                      th:if="${instructores == null || #lists.isEmpty(instructores)}"
+                      th:if="${instructors == null || #lists.isEmpty(instructors)}"
                     >
                       <td colspan="7" class="text-center py-4">
                         <p class="text-muted mb-0">
@@ -124,7 +124,7 @@
                         </p>
                       </td>
                     </tr>
-                    <tr th:each="instructor : ${instructores}">
+                    <tr th:each="instructor : ${instructors}">
                       <td th:text="${instructor.id}"></td>
                       <td th:text="${instructor.nombre}"></td>
                       <td th:text="${instructor.email}"></td>

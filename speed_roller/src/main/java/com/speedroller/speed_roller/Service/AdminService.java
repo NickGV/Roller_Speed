@@ -108,6 +108,14 @@ public class AdminService {
         classScheduleRepository.deleteById(id);
     }
 
+    public ClassSchedule saveClass(ClassSchedule clase) {
+        return classScheduleRepository.save(clase);
+    }
+
+    public ClassSchedule updateClass(ClassSchedule clase) {
+        return classScheduleRepository.save(clase);
+    }
+
     // Métodos para reportes
     public long getTotalStudents() {
         return studentRepository.count();

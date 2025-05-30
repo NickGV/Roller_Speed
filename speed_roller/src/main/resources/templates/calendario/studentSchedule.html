@@ -53,138 +53,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="time-slot fw-bold bg-light">8:00 AM<br>9:30 AM</td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Niños 6-10 años</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Adolescentes</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Niños 6-10 años</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Adolescentes</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Niños 6-10 años</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Competencia</small>
+                    <tr th:if="${clases == null || #lists.isEmpty(clases)}">
+                        <td colspan="7" class="text-center py-4">
+                            <p class="text-muted mb-0">No hay clases registradas actualmente</p>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="time-slot fw-bold bg-light">10:00 AM<br>11:30 AM</td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Adultos</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Adultos</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Adultos</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Adultos</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Jóvenes</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-primary mb-1 d-block">Freestyle</span>
-                            <small>Todos los niveles</small>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot fw-bold bg-light">2:00 PM<br>3:30 PM</td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Velocidad</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Técnica</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Velocidad</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Técnica</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Velocidad</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Familiar</small>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot fw-bold bg-light">4:00 PM<br>5:30 PM</td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Adolescentes</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Competencia</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Adolescentes</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-danger mb-1 d-block">Avanzado</span>
-                            <small>Competencia</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-primary mb-1 d-block">Coreografía</span>
-                            <small>Exhibición</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-warning text-dark mb-1 d-block">Intermedio</span>
-                            <small>Jóvenes</small>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot fw-bold bg-light">6:00 PM<br>7:30 PM</td>
-                        <td class="class-cell">
-                            <span class="badge bg-primary mb-1 d-block">Acondicionamiento</span>
-                            <small>Físico</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Noche</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-primary mb-1 d-block">Acondicionamiento</span>
-                            <small>Físico</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-success mb-1 d-block">Principiante</span>
-                            <small>Noche</small>
-                        </td>
-                        <td class="class-cell">
-                            <span class="badge bg-primary mb-1 d-block">Entrenamiento</span>
-                            <small>Personal</small>
-                        </td>
-                        <td class="class-cell text-muted">
-                            -
+                    <tr th:each="timeSlot : ${timeSlots}">
+                        <td class="time-slot fw-bold bg-light" th:text="${timeSlot}"></td>
+                        <td th:each="dia : ${dias}" class="class-cell">
+                            <div th:with="clase=${#lists.isEmpty(clases) ? null : clases.?[dia == __${dia}__ && horaInicio == __${timeSlot}__].^[0]}">
+                                <th:block th:if="${clase != null}">
+                                    <span th:class="${'badge mb-1 d-block ' + 
+                                        (clase.nivel == 'Principiante' ? 'bg-success' : 
+                                         clase.nivel == 'Intermedio' ? 'bg-warning text-dark' : 
+                                         clase.nivel == 'Avanzado' ? 'bg-danger' : 'bg-primary')}"
+                                          th:text="${clase.nivel}">
+                                    </span>
+                                    <small th:text="${clase.nombreClase}"></small>
+                                    <br>
+                                    <small class="text-muted" th:text="${clase.instructor.nombre}"></small>
+                                </th:block>
+                                <th:block th:unless="${clase != null}">
+                                    <span class="text-muted">-</span>
+                                </th:block>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

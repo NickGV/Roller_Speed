@@ -1,5 +1,6 @@
 package com.speedroller.speed_roller.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import com.speedroller.speed_roller.service.InstructorService;
 import com.speedroller.speed_roller.service.StudentService;
 
 @Controller
-@RequestMapping("/administrador/clases")
+@RequestMapping("/schedule")
 public class ClassScheduleController {
 
     @Autowired
@@ -50,20 +51,39 @@ public class ClassScheduleController {
     @PostMapping("/guardar-clase")
     public String guardarClase(@ModelAttribute("clase") ClassSchedule clase) {
         scheduleService.saveClass(clase);
-        return "redirect:/administrador/clases";
+        return "redirect:/schedule";
     }
 
     // Asignar instructor a una clase
     @PostMapping("/asignar-instructor")
     public String asignarInstructor(@RequestParam("classId") Long classId, @RequestParam("instructorId") Long instructorId) {
         scheduleService.assignInstructorToClass(classId, instructorId);
-        return "redirect:/administrador/clases";
+        return "redirect:/schedule";
     }
 
     // Agregar alumno a una clase
     @PostMapping("/agregar-alumno")
     public String agregarAlumno(@RequestParam("classId") Long classId, @RequestParam("studentId") Long studentId) {
         scheduleService.addStudentToClass(classId, studentId);
-        return "redirect:/administrador/clases";
+        return "redirect:/schedule";
+    }
+
+    @GetMapping("/view")
+    public String showSchedule(Model model) {
+        List<ClassSchedule> clases = scheduleService.getAllClasses();
+        List<String> dias = Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+        List<String> timeSlots = Arrays.asList(
+            "8:00 AM - 9:30 AM",
+            "10:00 AM - 11:30 AM",
+            "2:00 PM - 3:30 PM",
+            "4:00 PM - 5:30 PM",
+            "6:00 PM - 7:30 PM"
+        );
+
+        model.addAttribute("clases", clases);
+        model.addAttribute("dias", dias);
+        model.addAttribute("timeSlots", timeSlots);
+        
+        return "schedule/studentSchedule";
     }
 }
