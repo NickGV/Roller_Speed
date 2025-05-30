@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class eventsController {
+public class EventsController {
     @GetMapping("/eventos")
     public String eventos() {
         return "events";

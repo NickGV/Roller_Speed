@@ -43,7 +43,7 @@ public class ClassScheduleService {
     // Agregar alumno a una clase
     public void addStudentToClass(Long classId, Long studentId) {
         ClassSchedule clase = scheduleRepository.findById(classId).orElseThrow(() -> new RuntimeException("Clase no encontrada"));
-        Student student = studentService.getStudentById(studentId);
+        Student student = studentService.getStudentById(studentId).orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
 
         if (!clase.getEstudiantes().contains(student)) {
             clase.getEstudiantes().add(student);

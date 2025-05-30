@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/estudiantes")   
-public class studentController {
+public class StudentController {
 
     @Autowired
     private StudentService estudianteService;

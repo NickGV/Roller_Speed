@@ -16,7 +16,7 @@ import com.speedroller.speed_roller.service.StudentService;
 
 @Controller
 @RequestMapping("/registro")
-public class registerController {
+public class RegisterController {
 
     @Autowired
     private StudentService estudianteService;
