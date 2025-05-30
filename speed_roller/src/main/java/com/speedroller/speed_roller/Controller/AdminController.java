@@ -127,4 +127,38 @@ public class AdminController {
         }
         return "redirect:/admin/clases";
     }
+
+    @GetMapping("/estudiantes/editar/{id}")
+    public String editStudentForm(@PathVariable Long id, Model model) {
+        Optional<Student> student = adminService.getStudentById(id);
+        if (student.isPresent()) {
+            model.addAttribute("estudiante", student.get());
+            return "administrador/estudiantes/editStudent";
+        }
+        return "redirect:/admin/estudiantes";
+    }
+
+    @PostMapping("/estudiantes/editar/{id}")
+    public String updateStudent(@PathVariable Long id, @ModelAttribute Student student, RedirectAttributes redirectAttributes) {
+        try {
+            Student existingStudent = adminService.getStudentById(id)
+                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+            
+            // Mantener el rol y la contraseña existente
+            student.setRole(existingStudent.getRole());
+            student.setPassword(existingStudent.getPassword());
+            
+            adminService.updateStudent(student);
+            redirectAttributes.addFlashAttribute("mensaje", "Estudiante actualizado exitosamente");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al actualizar el estudiante: " + e.getMessage());
+        }
+        return "redirect:/admin/estudiantes";
+    }
+
+    @GetMapping("/estudiantes/nuevo")
+    public String newStudentForm(Model model) {
+        model.addAttribute("estudiante", new Student());
+        return "registro/studentRegister";
+    }
 }

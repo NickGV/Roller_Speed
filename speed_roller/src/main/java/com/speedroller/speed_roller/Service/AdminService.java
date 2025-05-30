@@ -61,6 +61,10 @@ public class AdminService {
         studentRepository.deleteById(id);
     }
 
+    public Student updateStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
     // Métodos para gestionar instructores
     public List<Instructor> getAllInstructors() {
         return instructorRepository.findAll();
