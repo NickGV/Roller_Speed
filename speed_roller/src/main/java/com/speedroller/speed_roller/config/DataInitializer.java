@@ -1,6 +1,7 @@
 package com.speedroller.speed_roller.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.speedroller.speed_roller.model.Admin;
@@ -24,7 +25,8 @@ public class DataInitializer {
         if (adminRepository.count() == 0) {
             // Crear un nuevo usuario administrador
             Admin admin = new Admin();
-            admin.setEmail("admin@academia.com");
+            admin.setName("Jose Nicolas");
+            admin.setEmail("admin@gmail.com");
             admin.setPassword(passwordEncoder.encode("admin123"));
             admin.setRole("ADMINISTRADOR");
 

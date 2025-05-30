@@ -30,7 +30,7 @@ public class RegisterController {
     @PostMapping("/guardarEstudiante")
     public String guardarEstudiante(@ModelAttribute("estudiante") Student estudiante) {
         estudianteService.saveStudent(estudiante);
-        return "redirect:/estudiantes/listStudents";
+        return "redirect:/registro/studentRegister";
     }
     @Autowired
     private InstructorService instructorService;

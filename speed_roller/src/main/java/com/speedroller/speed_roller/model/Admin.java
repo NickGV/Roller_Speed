@@ -21,6 +21,9 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false, length = 100)
+    private String name;
+
     @Column(nullable = false, length = 255)
     private String password;
     
@@ -28,6 +31,6 @@ public class Admin {
     private String email;
 
     @Column(nullable = false, length = 50)
-    private String role= "ADMINISTRADOR"; // ROL POR DEFECTO
+    private String role; // ROL POR DEFECTO
 
 }

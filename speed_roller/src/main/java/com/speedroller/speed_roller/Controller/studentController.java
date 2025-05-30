@@ -9,6 +9,8 @@ import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.service.StudentService;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 @RequestMapping("/estudiantes")   
@@ -23,5 +25,10 @@ public class StudentController {
         model.addAttribute("Estudiantesdb", studentsList); 
         return "estudiantes/listStudents";
     }
+    @GetMapping("/perfil")
+    public String getProfileStudent() {
+        return "estudiantes/studentProfile"; // Retorna la vista del perfil del estudiante
+    }
+    
     
 }
