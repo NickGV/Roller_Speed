@@ -45,7 +45,7 @@ public class Student {
     @Column(nullable = false, length = 50)
     private String metodoPago;
 
-    @Column(nullable = false, length = 20)
+    @Column(name = "rol", nullable = false, length = 20)
     private String role = "ESTUDIANTE"; 
 
     @Column(nullable = false, length = 255)
