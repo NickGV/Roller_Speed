@@ -46,7 +46,7 @@ public class Student {
     private String metodoPago;
 
     @Column(nullable = false, length = 20)
-    private String rol = "ALUMNO"; 
+    private String role = "ESTUDIANTE"; 
 
     @Column(nullable = false, length = 255)
     private String password;

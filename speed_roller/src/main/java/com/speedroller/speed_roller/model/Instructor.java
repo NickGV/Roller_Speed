@@ -41,5 +41,9 @@ public class Instructor {
 
     @Column(nullable = false, length = 255)
     private String password;
+
+    @Column(nullable = false, length = 50)
+    private String role = "INSTRUCTOR"; // ROL POR DEFECTO
+
 }
 
