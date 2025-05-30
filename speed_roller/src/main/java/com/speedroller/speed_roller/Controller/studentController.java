@@ -14,6 +14,11 @@ import com.speedroller.speed_roller.service.StudentService;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
+import com.speedroller.speed_roller.model.Payment;
+import com.speedroller.speed_roller.service.PaymentService;
 
 @Controller
 @RequestMapping("/estudiantes")   
@@ -21,6 +26,9 @@ public class StudentController {
 
     @Autowired
     private StudentService estudianteService;
+
+    @Autowired
+    private PaymentService paymentService;
 
     @RequestMapping(value = "/listar") 
     public String getAllStudens(Model model) {
@@ -59,5 +67,74 @@ public class StudentController {
         }
         
         return "redirect:/estudiantes/perfil";
+    }
+
+    @GetMapping("/pagos")
+    public String mostrarPagos(Model model, Authentication authentication) {
+        Student estudiante = estudianteService.findByEmail(authentication.getName())
+                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+
+        List<Payment> pagos = paymentService.getPaymentsByStudent(estudiante);
+        Double totalPagado = paymentService.getTotalPaidByStudent(estudiante);
+        Double pendientePagar = paymentService.getPendingAmountByStudent(estudiante);
+
+        model.addAttribute("estudiante", estudiante);
+        model.addAttribute("pagos", pagos);
+        model.addAttribute("totalPagado", totalPagado);
+        model.addAttribute("pendientePagar", pendientePagar);
+        model.addAttribute("proximoPago", 100.00); 
+
+        return "estudiantes/pagos";
+    }
+
+    @PostMapping("/realizarPago")
+    public String realizarPago(@RequestParam String concepto,
+                              @RequestParam Double monto,
+                              @RequestParam String metodoPago,
+                              Authentication authentication,
+                              RedirectAttributes redirectAttributes) {
+        try {
+            Student estudiante = estudianteService.findByEmail(authentication.getName())
+                    .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+
+            Payment pago = new Payment();
+            pago.setEstudiante(estudiante);
+            pago.setConcepto(concepto);
+            pago.setMonto(monto);
+            pago.setMetodoPago(metodoPago);
+            pago.setEstado("Completado");
+
+            paymentService.savePayment(pago);
+
+            redirectAttributes.addFlashAttribute("mensaje", "Pago realizado con éxito");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al realizar el pago: " + e.getMessage());
+        }
+
+        return "redirect:/estudiantes/pagos";
+    }
+
+    @PostMapping("/cambiarMetodoPago")
+    public String cambiarMetodoPago(@RequestParam String nuevoMetodoPago,
+                                   Authentication authentication,
+                                   RedirectAttributes redirectAttributes) {
+        try {
+            Student estudiante = estudianteService.findByEmail(authentication.getName())
+                    .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+
+            estudiante.setMetodoPago(nuevoMetodoPago);
+            estudianteService.saveStudent(estudiante);
+
+            redirectAttributes.addFlashAttribute("mensaje", "Método de pago actualizado con éxito");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al actualizar el método de pago: " + e.getMessage());
+        }
+
+        return "redirect:/estudiantes/pagos";
+    }
+
+    @GetMapping("/comprobante/{id}")
+    public String verComprobante(@PathVariable Long id, Model model, Authentication authentication) {
+        return "estudiantes/comprobante";
     }
 }
