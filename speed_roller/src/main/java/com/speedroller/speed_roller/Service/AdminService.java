@@ -78,6 +78,10 @@ public class AdminService {
         instructorRepository.deleteById(id);
     }
 
+    public void updateInstructor(Instructor instructor) {
+        instructorRepository.save(instructor);
+    }
+
     // Métodos para gestionar pagos
     public List<Payment> getAllPayments() {
         return paymentRepository.findAll();

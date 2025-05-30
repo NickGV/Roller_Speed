@@ -161,4 +161,38 @@ public class AdminController {
         model.addAttribute("estudiante", new Student());
         return "registro/studentRegister";
     }
+
+    @GetMapping("/instructores/editar/{id}")
+    public String editInstructorForm(@PathVariable Long id, Model model) {
+        Optional<Instructor> instructor = adminService.getInstructorById(id);
+        if (instructor.isPresent()) {
+            model.addAttribute("instructor", instructor.get());
+            return "administrador/instructores/editInstructor";
+        }
+        return "redirect:/admin/instructores";
+    }
+
+    @PostMapping("/instructores/editar/{id}")
+    public String updateInstructor(@PathVariable Long id, @ModelAttribute Instructor instructor, RedirectAttributes redirectAttributes) {
+        try {
+            Instructor existingInstructor = adminService.getInstructorById(id)
+                .orElseThrow(() -> new RuntimeException("Instructor no encontrado"));
+            
+            // Mantener el rol y la contraseña existente
+            instructor.setRole(existingInstructor.getRole());
+            instructor.setPassword(existingInstructor.getPassword());
+            
+            adminService.updateInstructor(instructor);
+            redirectAttributes.addFlashAttribute("mensaje", "Instructor actualizado exitosamente");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al actualizar el instructor: " + e.getMessage());
+        }
+        return "redirect:/admin/instructores";
+    }
+
+    @GetMapping("/instructores/nuevo")
+    public String newInstructorForm(Model model) {
+        model.addAttribute("instructor", new Instructor());
+        return "registro/instructorRegister";
+    }
 }

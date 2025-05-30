@@ -56,7 +56,7 @@
           >
             <h1 class="h2">Gestión de Instructores</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-              <a th:href="@{/registro/instructor}" class="btn btn-primary">
+              <a th:href="@{/admin/instructores/nuevo}" class="btn btn-primary">
                 <i class="bi bi-person-plus"></i> Nuevo Instructor
               </a>
             </div>
@@ -91,7 +91,9 @@
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Lista de Instructores</h6>
+              <h6 class="m-0 font-weight-bold text-primary">
+                Lista de Instructores
+              </h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -113,7 +115,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr th:if="${instructores == null || #lists.isEmpty(instructores)}">
+                    <tr
+                      th:if="${instructores == null || #lists.isEmpty(instructores)}"
+                    >
                       <td colspan="7" class="text-center py-4">
                         <p class="text-muted mb-0">
                           No hay instructores registrados actualmente
@@ -171,7 +175,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
+            <h5 class="modal-title" id="deleteModalLabel">
+              Confirmar Eliminación
+            </h5>
             <button
               type="button"
               class="btn-close"
