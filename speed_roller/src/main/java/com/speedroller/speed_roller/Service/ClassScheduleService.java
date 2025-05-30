@@ -17,10 +17,10 @@ public class ClassScheduleService {
     private ClassScheduleRepository scheduleRepository;
 
     @Autowired
-    private instructorService instructorService;
+    private InstructorService instructorService;
 
     @Autowired
-    private studentService studentService;
+    private StudentService studentService;
 
     // Guardar una nueva clase
     public ClassSchedule saveClass(ClassSchedule clase) {

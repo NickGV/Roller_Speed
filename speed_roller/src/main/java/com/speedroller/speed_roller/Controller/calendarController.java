@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/calendarios")
-public class calendarController {
+public class CalendarController {
     @GetMapping("/estudiantes")
     public String calendarioEstudiantes() {
         return "calendario/studentSchedule";

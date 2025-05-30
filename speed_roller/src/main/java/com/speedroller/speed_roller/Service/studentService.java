@@ -9,7 +9,7 @@ import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.repository.StudentRepository;
 
 @Service
-public class studentService {
+public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;

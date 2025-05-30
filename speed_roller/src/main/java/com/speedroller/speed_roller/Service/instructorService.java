@@ -10,7 +10,7 @@ import com.speedroller.speed_roller.model.Instructor;
 import com.speedroller.speed_roller.repository.InstructorRepository;
 
 @Service
-public class instructorService {
+public class InstructorService {
 
     @Autowired
     private InstructorRepository instructorRepository;
