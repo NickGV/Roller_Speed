@@ -30,23 +30,36 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/","/home","corporativo/**","registro/**").permitAll() // Permitir acceso a las rutas solo permitidas para todos los usuarios no registrados
-                .requestMatchers("/admin/**","/administrador/clases/**","/**").hasRole("ADMINISTRADOR") // Permitir acceso a las rutas solo permitidas para los usuarios con rol ADMIN
-                .requestMatchers("/instructor/profile","/calendario/instructorSchedule","/","/home","corporativo/**","registro/**").hasRole("INSTRUCTOR") // Permitir acceso a las rutas solo permitidas para los usuarios con rol INSTRUCTOR
-                .requestMatchers("/estudiante/**","/calendarios/estudentSchedule","/","/home","corporativo/**","registro/**").hasRole("ESTUDIANTE") // Permitir acceso a las rutas solo permitidas para los usuarios con rol ESTUDIANTE
-                .anyRequest().authenticated() // Requiere autenticación para cualquier otra solicitud
-            )
-            .formLogin((form) -> form
-                .loginPage("/login") //redirige a la pagina de inicio de sesión personalizada
-                .permitAll() // Permite acceso a la página de inicio de sesión para todos los usuarios
-            )
-            .logout((logout) -> logout
-                .permitAll() // Permite acceso al cierre de sesión para todos los usuarios
-         );
-        return http.build(); // Construye el filtro de seguridad
-    }
-    
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests((requests) -> requests
+            // Rutas públicas (acceso sin login)
+            .requestMatchers("/", "/home", "/corporativo/**", "/registro/**", "/login","/eventos", "/css/**", "/js/**", "/images/**").permitAll()
+
+            // Rutas para ADMINISTRADOR (acceso total a todo lo que no sea público)
+            .requestMatchers("/admin/**", "/administrador/**").hasRole("ADMINISTRADOR")
+
+            // Rutas específicas para INSTRUCTOR
+            .requestMatchers("/instructor/**", "/calendario/instructorSchedule").hasAnyRole("INSTRUCTOR", "ADMINISTRADOR")
+
+            // Rutas específicas para ESTUDIANTE
+            .requestMatchers("/estudiante/**", "/calendarios/estudentSchedule").hasAnyRole("ESTUDIANTE", "ADMINISTRADOR")
+
+            // Cualquier otra ruta requiere autenticación
+            .anyRequest().authenticated()
+        )
+        // Config login
+        .formLogin((form) -> form
+            .loginPage("/login")
+            .defaultSuccessUrl(("/home"), true)
+            .permitAll()
+        )
+        // Config logout
+        .logout((logout) -> logout
+            .permitAll()
+        );
+
+    return http.build();
+}
+
 }

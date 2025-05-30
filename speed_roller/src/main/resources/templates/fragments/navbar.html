@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
   <head>
     <meta charset="UTF-8" />
   </head>
@@ -143,9 +145,17 @@
               </li>
             </ul>
             
-            <a th:href="@{/login}" class="btn btn-join"
-              >Únete</a
-            >
+            <div class="d-flex">
+            <!-- Mostrar botón de cerrar sesión si el usuario está autenticado -->
+            <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+              <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+            </form>
+
+            <!-- Mostrar botón de iniciar sesión si el usuario NO está autenticado -->
+            <a th:href="@{/login}" class="btn btn-join" sec:authorize="!isAuthenticated()">
+              Únete
+            </a>
+          </div>
           </div>
         </div>
       </nav>

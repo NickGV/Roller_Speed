@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.repository.StudentRepository;
 
 @Service
 public class StudentService {
+
+    // Inyectamos el repositorio de estudiantes
 
     @Autowired
     private PasswordEncoder passwordEncoder; // Inyectamos el codificador de contraseñas
@@ -33,6 +36,10 @@ public class StudentService {
 
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
+    }
+
+    public Optional<Student> findByEmail(String email) {
+        return studentRepository.findByEmail(email);
     }
 
 

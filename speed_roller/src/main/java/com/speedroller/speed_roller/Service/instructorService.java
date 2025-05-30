@@ -19,6 +19,10 @@ public class InstructorService {
     @Autowired
     private InstructorRepository instructorRepository;
 
+    public Optional<Instructor> findByEmail(String email) {
+        return instructorRepository.findByEmail(email);
+    }
+
     public Instructor saveInstructor(Instructor instructor) {
         instructor.setPassword(passwordEncoder.encode(instructor.getPassword())); // Codificamos la contraseña antes de guardarla
         return instructorRepository.save(instructor);
