@@ -75,17 +75,32 @@ public class ClassScheduleController {
     public String showStudentSchedule(Model model, Authentication authentication) {
         List<ClassSchedule> clases = scheduleService.getAllClasses();
         
-        // Comentamos temporalmente el filtrado para mostrar todas las clases
-        /*
-        if (authentication != null ) {
-            Student student = studentService.findByEmail(authentication.getName())
-                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
-            clases = clases.stream()
-                .filter(clase -> clase.getEstudiantes() != null && 
-                        clase.getEstudiantes().contains(student))
-                .toList();
+        // Filtrar clases basadas en la experiencia del estudiante
+        if (authentication != null) {
+            try {
+                Student student = studentService.findByEmail(authentication.getName())
+                    .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+                
+                // Obtener el nivel de experiencia del estudiante
+                String experienciaEstudiante = student.getExperiencia();
+                
+                // Filtrar clases que coincidan con el nivel de experiencia del estudiante
+                clases = clases.stream()
+                    .filter(clase -> clase.getNivel().equalsIgnoreCase(experienciaEstudiante) ||
+                           // Si la experiencia es "Avanzado", mostrar todos los niveles
+                           (experienciaEstudiante.equalsIgnoreCase("Avanzado")) ||
+                           // Si la experiencia es "Intermedio", mostrar niveles Principiante e Intermedio
+                           (experienciaEstudiante.equalsIgnoreCase("Intermedio") && 
+                            (clase.getNivel().equalsIgnoreCase("Principiante") || 
+                             clase.getNivel().equalsIgnoreCase("Intermedio"))))
+                    .toList();
+                
+                model.addAttribute("experienciaEstudiante", experienciaEstudiante);
+            } catch (Exception e) {
+                // Si hay algún error, mostrar todas las clases
+                System.out.println("Error al obtener estudiante: " + e.getMessage());
+            }
         }
-        */
 
         model.addAttribute("clases", clases);
         model.addAttribute("totalClases", clases.size());
