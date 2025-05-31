@@ -45,6 +45,31 @@
                 </div>
 
                 <div class="mb-3">
+                  <label for="tipoClase" class="form-label"
+                    >Tipo de Clase</label
+                  >
+                  <select
+                    class="form-select"
+                    id="tipoClase"
+                    th:field="*{tipoClase}"
+                    required
+                  >
+                    <option value="">Seleccione un tipo</option>
+                    <option value="Principiante">
+                      Clases para Principiantes
+                    </option>
+                    <option value="Intermedio">Entrenamiento Intermedio</option>
+                    <option value="Avanzado">
+                      Preparación para Competencias
+                    </option>
+                    <option value="Artistico">Patinaje Artístico</option>
+                    <option value="Recreativo">
+                      Patinaje Recreativo y Fitness
+                    </option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
                   <label for="nivel" class="form-label">Nivel</label>
                   <select
                     class="form-select"
