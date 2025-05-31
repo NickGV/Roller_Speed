@@ -74,10 +74,10 @@ public class ClassScheduleController {
     @GetMapping("/estudiantes")
     public String showStudentSchedule(Model model, Authentication authentication) {
         List<ClassSchedule> clases = scheduleService.getAllClasses();
-
-        // Si el usuario es un estudiante, filtrar solo sus clases
-        if (authentication != null && authentication.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("ROLE_ESTUDIANTE"))) {
+        
+        // Comentamos temporalmente el filtrado para mostrar todas las clases
+        /*
+        if (authentication != null ) {
             Student student = studentService.findByEmail(authentication.getName())
                 .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
             clases = clases.stream()
@@ -85,6 +85,7 @@ public class ClassScheduleController {
                         clase.getEstudiantes().contains(student))
                 .toList();
         }
+        */
 
         model.addAttribute("clases", clases);
         model.addAttribute("totalClases", clases.size());
@@ -98,6 +99,8 @@ public class ClassScheduleController {
     public String showInstructorSchedule(Model model, Authentication authentication) {
         List<ClassSchedule> clases = scheduleService.getAllClasses();
 
+        // Comentamos temporalmente el filtrado para mostrar todas las clases
+        /*
         // Si el usuario es un instructor, filtrar solo sus clases
         if (authentication != null && authentication.getAuthorities().stream()
                 .anyMatch(a -> a.getAuthority().equals("ROLE_INSTRUCTOR"))) {
@@ -108,6 +111,7 @@ public class ClassScheduleController {
                         clase.getInstructor().getId() == instructor.getId())
                 .toList();
         }
+        */
 
         model.addAttribute("clases", clases);
         
