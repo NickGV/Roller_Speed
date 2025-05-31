@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Security;
+package com.speedroller.speed_roller.security;
 
 import java.util.Collection;
 import java.util.List;

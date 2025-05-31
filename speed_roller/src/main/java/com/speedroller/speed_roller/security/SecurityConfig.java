@@ -1,4 +1,4 @@
-package com.speedroller.speed_roller.Security;
+package com.speedroller.speed_roller.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -32,6 +32,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            .userDetailsService(customUserDetailsService)
             .csrf(csrf -> csrf.disable()) // Deshabilitamos CSRF para permitir POST sin token
             .authorizeHttpRequests((requests) -> requests
                 // Rutas públicas (acceso sin login)

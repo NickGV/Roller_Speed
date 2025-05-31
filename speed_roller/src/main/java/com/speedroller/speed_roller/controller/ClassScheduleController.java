@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.security.core.Authentication;
 
 import com.speedroller.speed_roller.model.ClassSchedule;
-import com.speedroller.speed_roller.model.Instructor;
+//import com.speedroller.speed_roller.model.Instructor;
 import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.service.ClassScheduleService;
 import com.speedroller.speed_roller.service.InstructorService;
