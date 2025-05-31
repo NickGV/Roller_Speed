@@ -74,14 +74,6 @@ public class ClassScheduleController {
     @GetMapping("/estudiantes")
     public String showStudentSchedule(Model model, Authentication authentication) {
         List<ClassSchedule> clases = scheduleService.getAllClasses();
-        List<String> dias = Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
-        List<String> horarios = Arrays.asList(
-            "8:00 AM - 9:30 AM",
-            "10:00 AM - 11:30 AM",
-            "2:00 PM - 3:30 PM",
-            "4:00 PM - 5:30 PM",
-            "6:00 PM - 7:30 PM"
-        );
 
         // Si el usuario es un estudiante, filtrar solo sus clases
         if (authentication != null && authentication.getAuthorities().stream()
@@ -95,8 +87,6 @@ public class ClassScheduleController {
         }
 
         model.addAttribute("clases", clases);
-        model.addAttribute("dias", dias);
-        model.addAttribute("horarios", horarios);
         model.addAttribute("totalClases", clases.size());
         model.addAttribute("niveles", Arrays.asList("Principiante", "Intermedio", "Avanzado"));
         
@@ -107,14 +97,6 @@ public class ClassScheduleController {
     @GetMapping("/instructores")
     public String showInstructorSchedule(Model model, Authentication authentication) {
         List<ClassSchedule> clases = scheduleService.getAllClasses();
-        List<String> dias = Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
-        List<String> horarios = Arrays.asList(
-            "8:00 AM - 9:30 AM",
-            "10:00 AM - 11:30 AM",
-            "2:00 PM - 3:30 PM",
-            "4:00 PM - 5:30 PM",
-            "6:00 PM - 7:30 PM"
-        );
 
         // Si el usuario es un instructor, filtrar solo sus clases
         if (authentication != null && authentication.getAuthorities().stream()
@@ -128,8 +110,6 @@ public class ClassScheduleController {
         }
 
         model.addAttribute("clases", clases);
-        model.addAttribute("dias", dias);
-        model.addAttribute("horarios", horarios);
         
         return "calendario/instructorSchedule";
     }
