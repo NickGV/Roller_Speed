@@ -38,13 +38,13 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
             .requestMatchers("/", "/home", "/corporativo/**", "/registro/**", "/login","/eventos", "/css/**", "/js/**", "/images/**").permitAll()
 
             // Rutas para ADMINISTRADOR (acceso total a todo lo que no sea público)
-            .requestMatchers("/admin/**", "/administrador/**").hasRole("ADMINISTRADOR")
+            .requestMatchers("/admin/**", "/administrador/**", "/horarios/**", "/instructor/**", "/estudiante/**").hasRole("ADMINISTRADOR")
 
             // Rutas específicas para INSTRUCTOR
-            .requestMatchers("/instructor/**", "/calendario/instructorSchedule").hasAnyRole("INSTRUCTOR", "ADMINISTRADOR")
+            .requestMatchers("/instructor/**", "/horarios/instructores").hasAnyRole("INSTRUCTOR", "ADMINISTRADOR")
 
             // Rutas específicas para ESTUDIANTE
-            .requestMatchers("/estudiante/**", "/calendarios/estudentSchedule").hasAnyRole("ESTUDIANTE", "ADMINISTRADOR")
+            .requestMatchers("/estudiante/**", "/horarios/estudiantes").hasAnyRole("ESTUDIANTE", "ADMINISTRADOR")
 
             // Cualquier otra ruta requiere autenticación
             .anyRequest().authenticated()

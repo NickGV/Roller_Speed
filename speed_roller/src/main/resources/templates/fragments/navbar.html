@@ -126,9 +126,44 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
                   <li>
-                    <a class="dropdown-item" th:href="@{/admin/dashboard}"
-                      >Dashboard</a
+                    <a class="dropdown-item" th:href="@{/admin/dashboard}">
+                      <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/admin/estudiantes}">
+                      <i class="bi bi-people"></i> Estudiantes
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/admin/instructores}">
+                      <i class="bi bi-person-badge"></i> Instructores
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/admin/clases}">
+                      <i class="bi bi-calendar3"></i> Clases
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/admin/pagos}">
+                      <i class="bi bi-cash-stack"></i> Pagos
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" th:href="@{/horarios/estudiantes}">
+                      <i class="bi bi-calendar-check"></i> Horario Estudiantes
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      th:href="@{/horarios/instructores}"
                     >
+                      <i class="bi bi-calendar-week"></i> Horario Instructores
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -157,9 +192,7 @@
                     >
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item"
-                      th:href="@{/calendarios/instructores}"
+                    <a class="dropdown-item" th:href="@{/horarios/instructores}"
                       >Mis Horarios</a
                     >
                   </li>
@@ -195,9 +228,7 @@
                     >
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item"
-                      th:href="@{/calendarios/estudiantes}"
+                    <a class="dropdown-item" th:href="@{/horarios/estudiantes}"
                       >Mis Horarios</a
                     >
                   </li>

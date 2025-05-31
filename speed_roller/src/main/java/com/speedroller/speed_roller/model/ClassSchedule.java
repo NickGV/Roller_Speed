@@ -17,21 +17,30 @@ public class ClassSchedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 50)
-    private String dia; // Ejemplo: Lunes, Martes, etc.
+    @Column(name = "dia", nullable = false, length = 50)
+    private String dia;
 
-    @Column(nullable = false, length = 50)
-    private String horaInicio; // Ejemplo: 8:00 AM
+    @Column(name = "hora_inicio", nullable = false, length = 50)
+    private String horaInicio;
 
-    @Column(nullable = false, length = 50)
-    private String horaFin; // Ejemplo: 9:30 AM
+    @Column(name = "hora_fin", nullable = false, length = 50)
+    private String horaFin;
 
-    @Column(nullable = false, length = 100)
-    private String nombreClase; // Ejemplo: Principiante Niños, Intermedio Adolescentes, etc.
+    @Column(name = "nombre_clase", nullable = false, length = 100)
+    private String nombreClase;
+
+    @Column(name = "tipo_clase", nullable = false, length = 50)
+    private String tipoClase; 
+
+    @Column(name = "nivel", nullable = false, length = 50)
+    private String nivel; 
+
+    @Column(name = "descripcion", length = 500)
+    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")
-    private Instructor instructor; // Instructor asignado a la clase
+    private Instructor instructor;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -39,8 +48,5 @@ public class ClassSchedule {
         joinColumns = @JoinColumn(name = "clase_id"),
         inverseJoinColumns = @JoinColumn(name = "estudiante_id")
     )
-    private List<Student> estudiantes; // Lista de alumnos inscritos en la clase
-
-    @Column(nullable = false, length = 20)
-    private String nivel; // Ejemplo: Principiante, Intermedio, Avanzado
+    private List<Student> estudiantes;
 }

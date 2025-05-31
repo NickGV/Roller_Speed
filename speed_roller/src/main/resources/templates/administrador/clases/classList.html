@@ -105,11 +105,11 @@
                     <tr>
                       <th>ID</th>
                       <th>Nombre</th>
+                      <th>Tipo</th>
+                      <th>Nivel</th>
                       <th>Instructor</th>
                       <th>Día</th>
-                      <th>Hora Inicio</th>
-                      <th>Hora Fin</th>
-                      <th>Nivel</th>
+                      <th>Horario</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
@@ -123,12 +123,16 @@
                     </tr>
                     <tr th:each="clase : ${clases}">
                       <td th:text="${clase.id}"></td>
-                      <td th:text="${clase.nombre}"></td>
-                      <td th:text="${clase.instructor.nombre}"></td>
-                      <td th:text="${clase.dia}"></td>
-                      <td th:text="${clase.horaInicio}"></td>
-                      <td th:text="${clase.horaFin}"></td>
+                      <td th:text="${clase.nombreClase}"></td>
+                      <td th:text="${clase.tipoClase}"></td>
                       <td th:text="${clase.nivel}"></td>
+                      <td
+                        th:text="${clase.instructor != null ? clase.instructor.nombre : 'Sin instructor'}"
+                      ></td>
+                      <td th:text="${clase.dia}"></td>
+                      <td
+                        th:text="${clase.horaInicio + ' - ' + clase.horaFin}"
+                      ></td>
                       <td>
                         <a
                           th:href="@{/admin/clases/{id}(id=${clase.id})}"
@@ -173,7 +177,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
+            <h5 class="modal-title" id="deleteModalLabel">
+              Confirmar Eliminación
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -206,7 +212,8 @@
         const modal = new bootstrap.Modal(
           document.getElementById("deleteModal")
         );
-        document.getElementById("deleteForm").action = "/admin/clases/eliminar/" + id;
+        document.getElementById("deleteForm").action =
+          "/admin/clases/eliminar/" + id;
         modal.show();
       }
     </script>
