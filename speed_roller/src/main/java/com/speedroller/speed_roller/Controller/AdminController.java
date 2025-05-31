@@ -103,7 +103,7 @@ public class AdminController {
 
     @GetMapping("/clases")
     public String listClasses(Model model) {
-        model.addAttribute("classes", adminService.getAllClasses());
+        model.addAttribute("clases", adminService.getAllClasses());
         return "administrador/clases/classList";
     }
 
@@ -111,7 +111,7 @@ public class AdminController {
     public String viewClass(@PathVariable Long id, Model model) {
         Optional<ClassSchedule> clase = adminService.getClassById(id);
         if (clase.isPresent()) {
-            model.addAttribute("class", clase.get());
+            model.addAttribute("clase", clase.get());
             return "administrador/clases/detail";
         }
         return "redirect:/admin/clases";
@@ -196,9 +196,9 @@ public class AdminController {
 
     @GetMapping("/clases/nueva")
     public String newClassForm(Model model) {
-        model.addAttribute("class", new ClassSchedule());
-        model.addAttribute("instructors", adminService.getAllInstructors());
-        return "administrador/clases/nuevaClase";
+        model.addAttribute("clase", new ClassSchedule());
+        model.addAttribute("instructores", adminService.getAllInstructors());
+        return "administrador/clases/newClass";
     }
 
     @PostMapping("/clases/guardar")
@@ -216,8 +216,8 @@ public class AdminController {
     public String editClassForm(@PathVariable Long id, Model model) {
         Optional<ClassSchedule> clase = adminService.getClassById(id);
         if (clase.isPresent()) {
-            model.addAttribute("class", clase.get());
-            model.addAttribute("instructors", adminService.getAllInstructors());
+            model.addAttribute("clase", clase.get());
+            model.addAttribute("instructores", adminService.getAllInstructors());
             return "administrador/clases/editClass";
         }
         return "redirect:/admin/clases";
