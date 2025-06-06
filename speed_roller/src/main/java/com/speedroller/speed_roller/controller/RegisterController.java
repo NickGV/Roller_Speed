@@ -14,6 +14,14 @@ import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.service.InstructorService;
 import com.speedroller.speed_roller.service.StudentService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "Registro", description = "API para el registro de estudiantes e instructores")
 @Controller
 @RequestMapping("/registro")
 public class RegisterController {
@@ -24,17 +32,26 @@ public class RegisterController {
     @Autowired
     private InstructorService instructorService;
 
+    @Operation(summary = "Formulario de registro de estudiante", description = "Muestra el formulario para registrar un nuevo estudiante")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Formulario mostrado correctamente", content = @Content(mediaType = "text/html"))
+    })
     @GetMapping("/nuevoEstudiante")
     public String mostrarFormularioNuevoEstudiante(Model model) {
         model.addAttribute("estudiante", new Student());
-        return "registro/studentRegister"; 
+        return "registro/studentRegister";
     }
 
+    @Operation(summary = "Procesar registro de estudiante", description = "Procesa el formulario de registro de estudiante")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "302", description = "Redirección después de un registro exitoso"),
+            @ApiResponse(responseCode = "302", description = "Redirección por error (email duplicado o error de validación)")
+    })
     @PostMapping("/guardarEstudiante")
-    public String guardarEstudiante(@ModelAttribute("estudiante") Student estudiante, 
-                                  RedirectAttributes redirectAttributes) {
+    public String guardarEstudiante(
+            @Schema(description = "Datos del estudiante a registrar") @ModelAttribute("estudiante") Student estudiante,
+            RedirectAttributes redirectAttributes) {
         try {
-            // Verificar si el email ya está registrado
             if (estudianteService.findByEmail(estudiante.getEmail()).isPresent()) {
                 redirectAttributes.addFlashAttribute("error", "El email ya está registrado");
                 return "redirect:/registro/nuevoEstudiante";
@@ -45,7 +62,7 @@ public class RegisterController {
 
             // Guardar el estudiante
             estudianteService.saveStudent(estudiante);
-            
+
             redirectAttributes.addFlashAttribute("mensaje", "Registro exitoso. Por favor inicia sesión.");
             return "redirect:/login";
         } catch (Exception e) {
@@ -54,15 +71,25 @@ public class RegisterController {
         }
     }
 
+    @Operation(summary = "Formulario de registro de instructor", description = "Muestra el formulario para registrar un nuevo instructor")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Formulario mostrado correctamente", content = @Content(mediaType = "text/html"))
+    })
     @GetMapping("/nuevoInstructor")
     public String mostrarFormularioNuevoInstructor(Model model) {
         model.addAttribute("instructor", new Instructor());
-        return "registro/instructorRegister"; 
+        return "registro/instructorRegister";
     }
 
+    @Operation(summary = "Procesar registro de instructor", description = "Procesa el formulario de registro de instructor")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "302", description = "Redirección después de un registro exitoso"),
+            @ApiResponse(responseCode = "302", description = "Redirección por error (email duplicado o error de validación)")
+    })
     @PostMapping("/guardarInstructor")
-    public String guardarInstructor(@ModelAttribute("instructor") Instructor instructor,
-                                  RedirectAttributes redirectAttributes) {
+    public String guardarInstructor(
+            @Schema(description = "Datos del instructor a registrar") @ModelAttribute("instructor") Instructor instructor,
+            RedirectAttributes redirectAttributes) {
         try {
             // Verificar si el email ya está registrado
             if (instructorService.findByEmail(instructor.getEmail()).isPresent()) {
@@ -75,7 +102,7 @@ public class RegisterController {
 
             // Guardar el instructor
             instructorService.saveInstructor(instructor);
-            
+
             redirectAttributes.addFlashAttribute("mensaje", "Registro exitoso. Por favor inicia sesión.");
             return "redirect:/login";
         } catch (Exception e) {

@@ -10,5 +10,10 @@ import java.util.List;
 @Repository
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
     List<Payment> findByEstudianteOrderByFechaDesc(Student estudiante);
+
     List<Payment> findByEstudianteAndEstadoOrderByFechaDesc(Student estudiante, String estado);
+
+    List<Payment> findByEstado(String estado);
+
+    long countByEstado(String estado);
 }

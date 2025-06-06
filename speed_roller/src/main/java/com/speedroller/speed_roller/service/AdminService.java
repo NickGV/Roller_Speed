@@ -95,6 +95,37 @@ public class AdminService {
         return paymentRepository.findByEstudianteAndEstadoOrderByFechaDesc(null, "Pendiente");
     }
 
+    public Optional<Payment> getPaymentById(Long id) {
+        return paymentRepository.findById(id);
+    }
+
+    public Payment savePayment(Payment payment) {
+        return paymentRepository.save(payment);
+    }
+
+    public void updatePaymentStatus(Long id, String nuevoEstado) {
+        Optional<Payment> pago = paymentRepository.findById(id);
+        if (pago.isPresent()) {
+            Payment pagoActual = pago.get();
+            pagoActual.setEstado(nuevoEstado);
+            paymentRepository.save(pagoActual);
+        } else {
+            throw new RuntimeException("Pago no encontrado con ID: " + id);
+        }
+    }
+
+    public List<Payment> getPaymentsByStatus(String estado) {
+        return paymentRepository.findByEstado(estado);
+    }
+
+    public long getPendingPaymentsCount() {
+        return paymentRepository.countByEstado("Pendiente");
+    }
+
+    public long getCompletedPaymentsCount() {
+        return paymentRepository.countByEstado("Completado");
+    }
+
     // Métodos para gestionar clases
     public List<ClassSchedule> getAllClasses() {
         return classScheduleRepository.findAll();
@@ -142,4 +173,8 @@ public class AdminService {
                 .mapToDouble(Payment::getMonto)
                 .sum();
     }
-} 
+
+    public void deletePayment(Long id) {
+        paymentRepository.deleteById(id);
+    }
+}

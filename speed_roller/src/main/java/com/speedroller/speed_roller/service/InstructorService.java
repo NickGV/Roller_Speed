@@ -24,7 +24,8 @@ public class InstructorService {
     }
 
     public Instructor saveInstructor(Instructor instructor) {
-        instructor.setPassword(passwordEncoder.encode(instructor.getPassword())); // Codificamos la contraseña antes de guardarla
+        instructor.setPassword(passwordEncoder.encode(instructor.getPassword())); // Codificamos la contraseña antes de
+                                                                                  // guardarla
         return instructorRepository.save(instructor);
     }
 
@@ -39,6 +40,8 @@ public class InstructorService {
     public void deleteInstructor(Long id) {
         instructorRepository.deleteById(id);
     }
-    
-}
 
+    public String encodePassword(String rawPassword) {
+        return passwordEncoder.encode(rawPassword);
+    }
+}
