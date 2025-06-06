@@ -44,7 +44,7 @@ Documentación de servicios con OpenAPI
 
 **¿Cómo ejecutar el proyecto?**
 
-Clonar el repositorio: git clone https://github.com/usuario/roller-speed.git cd roller-speed
+Clonar el repositorio: git clone    https://github.com/NickGV/Roller_Speed.git  cd roller-speed
 
 Cree la base de datos (PostgreSQL o MySQL según configuración).
 
