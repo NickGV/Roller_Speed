@@ -1,43 +1,36 @@
-** Roller Speed - Plataforma Web de Gestión para Escuela de Patinaje.**
+**Roller Speed ​​- Plataforma Web de Gestión para Escuela de Patinaje.**
 
 Este proyecto corresponde a la digitalización de la Escuela de Patinaje "Roller Speed", ubicada en Santa Marta, Colombia. La aplicación ha sido desarrollada como una solución monolítica con Spring Boot y documentada mediante OpenAPI (Swagger), permitiendo una gestión integral de alumnos, instructores, clases, asistencia y pagos.
 
-** Objetivo**
+**Objetivo**
 
 Automatizar los procesos administrativos de la escuela de patinaje, permitiendo a los aspirantes registrarse, acceder a información académica y financiera, y facilitando la gestión para administradores e instructores.
 
-
-
-
-  ##Tecnologías Utilizadas
+**Tecnologías Utilizadas.**
 
 Java 17
 
 Spring Boot 3.x
 
-Spring Data JPA
+Datos de primavera JPA
 
-Spring Security
+Seguridad de primavera
 
-Thymeleaf (para vistas)
+Hoja de tomillo (para vistas)
 
 PostgreSQL / MySQL
 
-OpenAPI / Swagger UI
+Interfaz de usuario OpenAPI / Swagger
 
 Lombok
 
 Bootstrap 5
 
-
-
-
-
- ##Módulos Desarrollados
+**Módulos Desarrollados**
 
 Registro de aspirantes
 
-Gestión de alumnos e instructores
+Gestión de alumnos e instructores.
 
 Programación de clases
 
@@ -49,66 +42,38 @@ Divulgación institucional
 
 Documentación de servicios con OpenAPI
 
+**¿Cómo ejecutar el proyecto?**
 
+Clonar el repositorio: git clone https://github.com/usuario/roller-speed.git cd roller-speed
 
+Cree la base de datos (PostgreSQL o MySQL según configuración).
 
+Configure la conexión en src/main/resources/application.properties.
 
- ##¿Cómo ejecutar el proyecto?
+Ejecutar el proyecto: ./mvnw spring-boot:run
 
-1. Clonar el repositorio:
-git clone https://github.com/usuario/roller-speed.git
-cd roller-speed
+Acceda a Swagger para ver la documentación: http://localhost:8080/swagger-ui/index.html
 
+**Documentación de la API**
 
-2. Crear la base de datos (PostgreSQL o MySQL según configuración).
+La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI. Puedes probar todos los endpoints desde la interfaz interactiva: http://localhost:8080/swagger-ui/index.html
 
+**Equipo de Desarrollo.**
+ Cristian Pallares. José Nisperuza Arroyo. Nicolás Gómez Vélez.
 
-3. Configurar la conexión en src/main/resources/application.properties.
-
-
-4. Ejecutar el proyecto:
-./mvnw spring-boot:run
-
-
-5. Acceder a Swagger para ver la documentación:
-http://localhost:8080/swagger-ui/index.html
-
-##Documentación de la API
-
-La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI.
-Puedes probar todos los endpoints desde la interfaz interactiva:
-http://localhost:8080/swagger-ui/index.html
-
-
-
-
-##Equipo de Desarrollo
-Cristian Pallares.
-José Nisperuza Arroyo.
-Nicolas Gómez Vélez.
-
-
-
-
-
-
- ##Video de Presentación
+**Video de presentación**
 
 Enlace al video explicativo:
 
-
-
-
-##Estado del Proyecto
+**Estado del Proyecto**
 
 ✅ Producto Mínimo Viable completado
 
-✅ CRUD funcional y documentado
+✅CRUD funcional y documentado
 
 ✅ Código modular con principios SOLID
 
 ✅ Publicado en GitHub
 
-##Contacto.
-Este proyecto fue desarrollado como parte del proceso formativo de los estudiantes de la Institución Universitaria Digital de Antioquia del Programa Tecnología en Desarrollo de Software.
-
+**Contacto.**
+ Este proyecto fue desarrollado como parte del proceso formativo de los estudiantes de la Institución Universitaria Digital de Antioquia del Programa Tecnología en Desarrollo de Software.
