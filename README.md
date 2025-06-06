@@ -1,8 +1,8 @@
- #Roller Speed - Plataforma Web de Gestión para Escuela de Patinaje.
+** Roller Speed - Plataforma Web de Gestión para Escuela de Patinaje.**
 
 Este proyecto corresponde a la digitalización de la Escuela de Patinaje "Roller Speed", ubicada en Santa Marta, Colombia. La aplicación ha sido desarrollada como una solución monolítica con Spring Boot y documentada mediante OpenAPI (Swagger), permitiendo una gestión integral de alumnos, instructores, clases, asistencia y pagos.
 
- ##Objetivo
+** Objetivo**
 
 Automatizar los procesos administrativos de la escuela de patinaje, permitiendo a los aspirantes registrarse, acceder a información académica y financiera, y facilitando la gestión para administradores e instructores.
 
