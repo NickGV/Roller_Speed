@@ -5,6 +5,7 @@ import com.speedroller.speed_roller.model.Instructor;
 import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.model.Payment;
 import com.speedroller.speed_roller.service.AdminService;
+import com.speedroller.speed_roller.service.InstructorService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -33,6 +34,9 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private InstructorService instructorService;
 
     @Operation(summary = "Dashboard de administración", description = "Muestra el panel de control con estadísticas generales")
     @ApiResponses(value = {
@@ -112,8 +116,20 @@ public class AdminController {
             @ModelAttribute Instructor instructor,
             RedirectAttributes redirectAttributes) {
         try {
-            adminService.updateInstructor(instructor);
-            redirectAttributes.addFlashAttribute("mensaje", "Instructor actualizado correctamente");
+            Optional<Instructor> originalOpt = adminService.getInstructorById(id);
+            if (originalOpt.isPresent()) {
+                Instructor original = originalOpt.get();
+                if (instructor.getPassword() == null || instructor.getPassword().isBlank()) {
+                    instructor.setPassword(original.getPassword());
+                } else {
+                    instructor.setPassword(instructorService.encodePassword(instructor.getPassword()));
+                }
+                instructor.setId(id);
+                adminService.updateInstructor(instructor);
+                redirectAttributes.addFlashAttribute("mensaje", "Instructor actualizado correctamente");
+            } else {
+                redirectAttributes.addFlashAttribute("error", "Instructor no encontrado");
+            }
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Error al actualizar instructor: " + e.getMessage());
         }
