@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import com.speedroller.speed_roller.model.Student;
 import com.speedroller.speed_roller.repository.StudentRepository;
 
@@ -22,7 +21,8 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     public Student saveStudent(Student student) {
-        student.setPassword(passwordEncoder.encode(student.getPassword())); // Codificamos la contraseña antes de guardarla
+        student.setPassword(passwordEncoder.encode(student.getPassword())); // Codificamos la contraseña antes de
+                                                                            // guardarla
         return studentRepository.save(student);
     }
 
@@ -42,6 +42,4 @@ public class StudentService {
         return studentRepository.findByEmail(email);
     }
 
-
-    
 }

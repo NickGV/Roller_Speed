@@ -32,24 +32,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Deshabilitamos CSRF para permitir POST sin token
+            .csrf(csrf -> csrf.disable()) 
             .authorizeHttpRequests((requests) -> requests
-                // Rutas públicas (acceso sin login)
                 .requestMatchers("/", "/home", "/corporativo/**", "/registro/**", "/login","/eventos", "/css/**", "/js/**", "/images/**").permitAll()
 
-                // Rutas para ADMINISTRADOR (acceso total a todo lo que no sea público)
                 .requestMatchers("/admin/**", "/administrador/**").hasRole("ADMINISTRADOR")
 
-                // Rutas específicas para INSTRUCTOR
                 .requestMatchers("/instructor/**", "/horarios/instructores").hasAnyRole("INSTRUCTOR", "ADMINISTRADOR")
 
-                // Rutas específicas para ESTUDIANTE
                 .requestMatchers("/estudiantes/**", "/horarios/estudiantes").hasAnyRole("ESTUDIANTE", "ADMINISTRADOR")
                 
-                // Rutas de horarios generales
                 .requestMatchers("/horarios/**").hasAnyRole("ADMINISTRADOR", "INSTRUCTOR", "ESTUDIANTE")
 
-                // Cualquier otra ruta requiere autenticación
                 .anyRequest().authenticated()
             )
             // Config login
