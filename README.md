@@ -52,14 +52,12 @@ Configure la conexión en src/main/resources/application.properties.
 
 Ejecutar el proyecto: ./mvnw spring-boot:run
 
-Acceda a Swagger para ver la documentación: http://localhost:8080/swagger-ui.html
+Acceda a Swagger para ver la documentación: https://app.swaggerhub.com/apis/iudigitaldeantioquia/api-de_roller_speed/v1.0
 
 **Documentación de la API**
 
 La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI. Puedes probar todos los endpoints desde la interfaz interactiva: 
-https://petstore.swagger.io/?_gl=1*s6wxrr*_gcl_au*MjEzNjE3Nzc0MC4xNzQ5MjMzODg4
-con
-http://localhost:8080/swagger-ui.html
+https://app.swaggerhub.com/apis/iudigitaldeantioquia/api-de_roller_speed/v1.0
 
 **Equipo de Desarrollo.**
  Cristian Pallares. 
