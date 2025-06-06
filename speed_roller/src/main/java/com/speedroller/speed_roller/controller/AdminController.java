@@ -1,4 +1,5 @@
 package com.speedroller.speed_roller.controller;
+
 import java.util.Optional;
 
 import com.speedroller.speed_roller.model.ClassSchedule;
@@ -42,6 +43,9 @@ public class AdminController {
 
     @Autowired
     private InstructorService instructorService;
+
+    @Autowired
+    private InstructorService estudianteService;
 
     @Operation(summary = "Dashboard de administración", description = "Muestra el panel de control con estadísticas generales")
     @ApiResponses(value = {
@@ -285,6 +289,33 @@ public class AdminController {
         if (estudiante.isPresent()) {
             model.addAttribute("estudiante", estudiante.get());
             return "administrador/estudiantes/editStudent";
+        }
+        return "redirect:/admin/estudiantes";
+    }
+
+    @Operation(summary = "Actualizar estudiante", description = "Actualiza la información de un estudiante")
+    @PostMapping("/estudiantes/editar/{id}")
+    public String updateStudent(
+            @Parameter(description = "ID del estudiante") @PathVariable Long id,
+            @ModelAttribute Student estudiante,
+            RedirectAttributes redirectAttributes) {
+        try {
+            Optional<Student> originalOpt = adminService.getStudentById(id);
+            if (originalOpt.isPresent()) {
+                Student original = originalOpt.get();
+                if (estudiante.getPassword() == null || estudiante.getPassword().isBlank()) {
+                    estudiante.setPassword(original.getPassword());
+                } else {
+                    estudiante.setPassword(estudianteService.encodePassword(estudiante.getPassword()));
+                }
+                estudiante.setId(id);
+                adminService.updateStudent(estudiante);
+                redirectAttributes.addFlashAttribute("mensaje", "Estudiante actualizado correctamente");
+            } else {
+                redirectAttributes.addFlashAttribute("error", "Estudiante no encontrado");
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al actualizar estudiante: " + e.getMessage());
         }
         return "redirect:/admin/estudiantes";
     }

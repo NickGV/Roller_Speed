@@ -61,112 +61,59 @@
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <label class="form-label">Nombre</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      th:field="*{nombre}"
-                      required
-                    />
+                    <input type="text" class="form-control" th:field="*{nombre}" readonly />
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Apellido</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      th:field="*{apellido}"
-                      required
-                    />
+                    <input type="text" class="form-control" th:field="*{apellido}" readonly />
                   </div>
-                </div>
-
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label">Fecha de Nacimiento</label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      th:field="*{fechaNacimiento}"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Género</label>
-                    <select class="form-select" th:field="*{genero}" required>
-                      <option value="Masculino">Masculino</option>
-                      <option value="Femenino">Femenino</option>
-                      <option value="Otro">Otro</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Dirección</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    th:field="*{direccion}"
-                    required
-                  />
                 </div>
 
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <label class="form-label">Email</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      th:field="*{email}"
-                      required
-                    />
+                    <input type="email" class="form-control" th:field="*{email}" readonly />
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Teléfono</label>
-                    <input
-                      type="tel"
-                      class="form-control"
-                      th:field="*{telefono}"
-                      required
-                    />
+                    <input type="text" class="form-control" th:field="*{telefono}" />
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Dirección</label>
+                  <input type="text" class="form-control" th:field="*{direccion}" />
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input type="text" class="form-control" th:field="*{fecha_nacimiento}" readonly />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Género</label>
+                    <input type="text" class="form-control" th:field="*{genero}" readonly />
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <div class="col-md-6">
-                    <label class="form-label">Experiencia</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      th:field="*{experiencia}"
-                      required
-                    />
+                    <label class="form-label">Nivel de Experiencia</label>
+                    <input type="text" class="form-control" th:field="*{experiencia}" readonly />
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Método de Pago</label>
-                    <select
-                      class="form-select"
-                      th:field="*{metodoPago}"
-                      required
-                    >
-                      <option value="Efectivo">Efectivo</option>
-                      <option value="Tarjeta">Tarjeta</option>
-                      <option value="Transferencia">Transferencia</option>
-                    </select>
+                    <input type="text" class="form-control" th:field="*{metodo_pago}" />
                   </div>
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label">Comentarios</label>
-                  <textarea
-                    class="form-control"
-                    th:field="*{comentarios}"
-                    rows="3"
-                  ></textarea>
+                  <textarea class="form-control" th:field="*{comentarios}" rows="2"></textarea>
                 </div>
 
                 <div class="text-end">
-                  <button type="submit" class="btn btn-primary">
-                    Guardar Cambios
-                  </button>
+                  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 </div>
               </form>
             </div>

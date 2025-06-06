@@ -26,6 +26,10 @@ public class Student {
         @Column(nullable = false, length = 50)
         private String apellido;
 
+        @Schema(description = "Dirección del estudiante", example = "Calle Falsa 123", required = true)
+        @Column(nullable = false, length = 100)
+        private String direccion;
+
         @Schema(description = "Email del estudiante", example = "juan.perez@email.com", required = true)
         @Column(nullable = false, unique = true, length = 100)
         private String email;
@@ -35,7 +39,7 @@ public class Student {
         private String telefono;
 
         @Schema(description = "Fecha de nacimiento del estudiante", example = "2005-06-15")
-        private String fechaNacimiento;
+        private String fecha_nacimiento;
 
         @Schema(description = "Género del estudiante", example = "Masculino", allowableValues = { "Masculino",
                         "Femenino",
@@ -60,13 +64,13 @@ public class Student {
         @Schema(description = "Método de pago del estudiante", example = "Tarjeta de crédito", allowableValues = {
                         "Efectivo", "Tarjeta de crédito", "Tarjeta de débito", "Transferencia bancaria" })
         @Column(length = 50)
-        private String metodoPago;
+        private String metodo_pago;
 
         public String getMetodoPago() {
-                return metodoPago;
+                return metodo_pago;
         }
 
-        public void setMetodoPago(String metodoPago) {
-                this.metodoPago = metodoPago;
+        public void setMetodoPago(String metodo_pago) {
+                this.metodo_pago = metodo_pago;
         }
 }

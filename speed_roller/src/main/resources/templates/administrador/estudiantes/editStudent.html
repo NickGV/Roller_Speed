@@ -50,7 +50,7 @@
             <div class="form-body">
               <form
                 th:action="@{/admin/estudiantes/editar/{id}(id=${estudiante.id})}"
-                method="POST"
+                method="post"
                 th:object="${estudiante}"
                 class="needs-validation"
                 novalidate
@@ -97,15 +97,15 @@
                 <div class="row mb-4">
                   <div class="col-md-6 mb-3 mb-md-0">
                     <label
-                      for="fechaNacimiento"
+                      for="fecha_nacimiento"
                       class="form-label required-field"
                       >Fecha de Nacimiento</label
                     >
                     <input
                       type="date"
                       class="form-control"
-                      id="fechaNacimiento"
-                      th:field="*{fechaNacimiento}"
+                      id="fecha_nacimiento"
+                      th:field="*{fecha_nacimiento}"
                       required
                     />
                     <div class="invalid-feedback">
@@ -210,13 +210,13 @@
                 </div>
 
                 <div class="mb-4">
-                  <label for="metodoPago" class="form-label required-field"
+                  <label for="metodo_pago" class="form-label required-field"
                     >Método de Pago</label
                   >
                   <select
                     class="form-select"
-                    id="metodoPago"
-                    th:field="*{metodoPago}"
+                    id="metodo_pago"
+                    th:field="*{metodo_pago}"
                     required
                   >
                     <option value="Efectivo">Efectivo</option>
