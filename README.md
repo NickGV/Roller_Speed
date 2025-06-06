@@ -52,14 +52,16 @@ Configure la conexión en src/main/resources/application.properties.
 
 Ejecutar el proyecto: ./mvnw spring-boot:run
 
-Acceda a Swagger para ver la documentación: http://localhost:8080/swagger-ui/index.html
+Acceda a Swagger para ver la documentación: http://localhost:8080/swagger-ui.html
 
 **Documentación de la API**
 
-La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI. Puedes probar todos los endpoints desde la interfaz interactiva: http://localhost:8080/swagger-ui/index.html
+La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI. Puedes probar todos los endpoints desde la interfaz interactiva: http://localhost:8080/swagger-ui.html
 
 **Equipo de Desarrollo.**
- Cristian Pallares. José Nisperuza Arroyo. Nicolás Gómez Vélez.
+ Cristian Pallares. 
+ José Nisperuza Arroyo. 
+ Nicolás Gómez Vélez.
 
 **Video de presentación**
 
