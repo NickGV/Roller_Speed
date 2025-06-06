@@ -56,7 +56,10 @@ Acceda a Swagger para ver la documentación: http://localhost:8080/swagger-ui.ht
 
 **Documentación de la API**
 
-La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI. Puedes probar todos los endpoints desde la interfaz interactiva: http://localhost:8080/swagger-ui.html
+La API RESTful se encuentra documentada con OpenAPI 3 y expuesta mediante Swagger UI. Puedes probar todos los endpoints desde la interfaz interactiva: 
+https://petstore.swagger.io/?_gl=1*s6wxrr*_gcl_au*MjEzNjE3Nzc0MC4xNzQ5MjMzODg4
+con
+http://localhost:8080/swagger-ui.html
 
 **Equipo de Desarrollo.**
  Cristian Pallares. 
